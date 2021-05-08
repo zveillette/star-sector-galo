@@ -1,0 +1,13 @@
+{
+    "variantId": "muleships_dsracer_Standard",
+    "hullId": "muleships_dsracer",
+    "displayName": "Standard",
+    "goalVariant": true,
+    "fluxCapacitors": 2,
+    "fluxVents": 10,
+    "permaMods": [],
+    "hullMods": [],
+    "weaponGroups": [],
+    "modules": [],
+    "wings": []
+}

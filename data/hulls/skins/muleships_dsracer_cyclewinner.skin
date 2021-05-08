@@ -1,0 +1,32 @@
+{
+    "baseHullId": "muleships_dsracer",
+    "skinHullId": "muleships_dsracer_cyclewinner",
+    "hullName": "Distant Start (CW)",
+    "ordnancePoints": 15,
+    "descriptionId": "muleships_dsracer",
+    "descriptionPrefix": "This ship has won the 201 cycle persean race. Stories suggest it has been over-hauled by Tri-Tachyon with illegal components allowing it to outmatch any other ship of its class.",
+    "tags": ["rare_bp","tritachyon"],
+    "tech": "Tri-Tachyon",
+    "spriteName": "graphics/ships/racer/muleships_dsracer_cyclewinner.png",
+    "fleetPoints": 4,
+    "baseValueMult": 2,
+    "removeHints": [],
+    "addHints": [],
+    "removeWeaponSlots": [],
+    "removeEngineSlots": [],
+    "removeBuiltInMods": [],
+    "removeBuiltInWeapons": [],
+    "builtInMods": ["hiressensors", "muleships_cyclewinner"],
+    "builtInWeapons": {},
+    "engineSlotChanges": {
+        "0": {
+            "style": "HIGH_TECH"
+        },
+        "1": {
+            "style": "HIGH_TECH"
+        },
+        "2": {
+            "style": "HIGH_TECH"
+        }
+    }
+}

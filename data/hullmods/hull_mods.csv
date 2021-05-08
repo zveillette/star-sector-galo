@@ -1,0 +1,6 @@
+name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sprite
+201 Cycle Winner,muleships_cyclewinner,0,,,,,,,TRUE,,0,0,0,0,jars.src.data.scripts.hullmods.Muleships_CycleWinner,"Winner of the 201 Cycle persean race. 
+
+Mounts an illegal engine boost providing an additional %s top speed.
+
+Maintenance cost is increased by %s.",Provide engine boost and increase maintenance.,graphics/hullmods/muleships_cycle_winner.png
