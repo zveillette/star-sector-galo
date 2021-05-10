@@ -1,4 +1,7 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sprite
-Tri-Tachyon Miniaturization,muleships_tritachyon,0,,,,,,,TRUE,,0,0,0,0,jars.src.data.scripts.hullmods.Muleships_DsRacerTriTachyon,"Ship was illegally outfited with a miniaturized sensoring package for better navigation inside nebullas.
+Tri-Tachyon Miniaturization,muleships_dsracer_tritachyon,0,,,,,,,TRUE,,0,0,0,0,jars.src.data.scripts.hullmods.Muleships_DsRacerTriTachyon,"Ship was illegally outfited with a miniaturized sensoring package for better navigation inside nebullas.
 
 Maintenance cost is increased by %s.",Increase maintenance.,graphics/hullmods/muleships_tritachyon.png
+Intensive Freighter Retrofit,muleships_dsracer_f,0,,,,,,,TRUE,,0,0,0,0,jars.src.data.scripts.hullmods.Muleships_DsRacerFreighter,"Ship was redesigned to hold as much compartments as possible, giving its weird hull diformation.
+
+Increased ship cargo, fuel and crew. Reduced speed and turn rate.","Increased ship cargo, fuel and fuel. Reduced speed and turn rate.",graphics/hullmods/muleships_tritachyon.png

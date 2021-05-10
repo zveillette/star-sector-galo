@@ -16,7 +16,7 @@
     "removeEngineSlots": [],
     "removeBuiltInMods": [],
     "removeBuiltInWeapons": [],
-    "builtInMods": ["hiressensors", "muleships_tritachyon"],
+    "builtInMods": ["hiressensors", "muleships_dsracer_tritachyon"],
     "builtInWeapons": {},
     "engineSlotChanges": {
         "0": {

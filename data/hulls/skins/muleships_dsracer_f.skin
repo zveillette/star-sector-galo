@@ -1,0 +1,31 @@
+{
+    "baseHullId": "muleships_dsracer",
+    "skinHullId": "muleships_dsracer_f",
+    "hullName": "Distant Start (Freighter)",
+    "ordnancePoints": 8,
+    "descriptionId": "muleships_dsracer",
+    "descriptionPrefix": "One of the most fragile and small freighter of the sector. A Distant Star class with a downgraded engine, with its hull barely holding together.",
+    "tags": ["base_bp"],
+    "tech": "Low Tech",
+    "spriteName": "graphics/ships/racer/muleships_dsracer_f.png",
+    "fleetPoints": 2,
+    "baseValueMult": 0.9,
+    "removeHints": [],
+    "addHints": [],
+	"systemId":"",
+    "removeWeaponSlots": [],
+    "removeEngineSlots": ["1", "2"],
+    "removeBuiltInMods": [],
+    "removeBuiltInWeapons": [],
+    "builtInMods": ["civgrade", "muleships_dsracer_f"],
+    "builtInWeapons": {},
+    "engineSlotChanges": {
+        "0": {
+            "length": 30,
+            "width": 10,
+            "angle": 180,
+            "contrailSize": 25,
+            "style": "LOW_TECH"
+        }
+    }
+}
