@@ -1,0 +1,13 @@
+{
+    "variantId": "muleships_dsracer_Freighter",
+    "hullId": "muleships_dsracer_f",
+    "displayName": "Freighter",
+    "goalVariant": true,
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "permaMods": [],
+    "hullMods": ["expanded_cargo_holds","insulatedengine"],
+    "weaponGroups": [],
+    "modules": [],
+    "wings": []
+}

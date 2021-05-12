@@ -8,7 +8,7 @@
     "tags": ["rare_bp","tritachyon"],
     "tech": "Tri-Tachyon",
     "spriteName": "graphics/ships/racer/muleships_dsracer_tt.png",
-    "fleetPoints": 4,
+    "fleetPoints": 3,
     "baseValueMult": 2,
     "removeHints": [],
     "addHints": [],
