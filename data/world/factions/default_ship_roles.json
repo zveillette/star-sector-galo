@@ -1,28 +1,26 @@
 {
 	"combatSmallForSmallFleet": {
-		"muleships_armoredkite_Standard": 5
+		"muleships_armoredkite_Standard": 3
 	},
 	"combatSmall": {
-		"muleships_armoredkite_Standard": 5
+		"muleships_armoredkite_Standard": 3
 	},
 	"combatFreighterSmall": {
-		"muleships_armoredkite_Standard": 5
+		"muleships_armoredkite_Standard": 2
 	},
 	"civilianRandom": {
 		"muleships_armoredkite_Standard": 1,
 		"muleships_dsracer_Standard": 1,
-		"muleships_dsracer_Freighter": 1
+		"muleships_dsracer_Freighter": 1,
+		"muleships_dsracer_TriTachyon": 1
 	},
 	"personnelSmall": {
-		"muleships_armoredkite_Standard": 5
-	},
-	"linerSmall": {
-		"muleships_armoredkite_Standard": 1
+		"muleships_armoredkite_Standard": 2
 	},
 	"utility": {
 		"muleships_dsracer_Standard": 1
 	},
 	"freighterSmall": {
-		"muleships_dsracer_Freighter": 2
+		"muleships_dsracer_Freighter": 3
 	}
 }
