@@ -1,0 +1,51 @@
+{
+    "variantId": "muleships_boulder_Support",
+    "hullId": "muleships_boulder",
+    "displayName": "Support",
+    "goalVariant": true,
+    "fluxCapacitors": 6,
+    "fluxVents": 20,
+    "permaMods": [],
+    "hullMods": [
+        "targetingunit",
+        "auxiliarythrusters"
+    ],
+    "weaponGroups": [{
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "hveldriver",
+                "WS0002": "hveldriver"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "heatseeker"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "swarmer"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "taclaser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "vulcan",
+                "WS0006": "vulcan"
+            }
+        }
+    ]
+}

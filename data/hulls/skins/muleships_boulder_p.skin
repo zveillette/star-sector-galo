@@ -1,0 +1,34 @@
+{
+    "baseHullId": "muleships_boulder",
+    "skinHullId": "muleships_boulder_p",
+    "hullName": "Boulder (P)",
+    "ordnancePoints": 80,
+    "descriptionId": "muleships_boulder",
+    "descriptionPrefix": "This ship has been heavily modified - and poorly maintained - by its pirate crew.",
+    "tags": ["pirate_bp"],
+    "tech": "Pirate",
+    "spriteName": "graphics/ships/boulder/muleships_boulder_p.png",
+    "baseValueMult": 0.9,
+    "removeHints": [],
+    "addHints": [],
+    "removeWeaponSlots": ["WS0005", "WS0006"],
+    "removeEngineSlots": [],
+    "removeBuiltInMods": [],
+    "removeBuiltInWeapons": [],
+    "builtInMods": [],
+    "builtInWeapons": {},
+    "weaponSlotChanges":{
+		"WS0001":{
+            "type": "COMPOSITE"
+		},
+        "WS0002":{
+            "type": "COMPOSITE"
+		},
+        "WS0003":{
+            "type": "BALLISTIC"
+		},
+        "WS0004":{
+            "type": "BALLISTIC"
+		}
+	}
+}

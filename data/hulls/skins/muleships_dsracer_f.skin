@@ -9,7 +9,7 @@
     "tech": "Low Tech",
     "spriteName": "graphics/ships/racer/muleships_dsracer_f.png",
     "fleetPoints": 2,
-    "baseValueMult": 0.5,
+    "baseValueMult": 0.2,
     "removeHints": [],
     "addHints": [],
 	"systemId":"",

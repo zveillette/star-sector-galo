@@ -5,11 +5,17 @@
 	"combatSmall": {
 		"muleships_armoredkite_Standard": 3
 	},
+	"combatMedium":{
+		"muleships_boulder_Balanced": 2,
+		"muleships_boulder_Support": 2,
+		"muleships_boulder_p_Standard": 3
+	},
 	"combatFreighterSmall": {
 		"muleships_armoredkite_Standard": 2
 	},
 	"civilianRandom": {
 		"muleships_armoredkite_Standard": 1,
+		
 		"muleships_dsracer_Standard": 1,
 		"muleships_dsracer_Freighter": 1,
 		"muleships_dsracer_TriTachyon": 1

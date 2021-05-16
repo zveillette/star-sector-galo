@@ -1,0 +1,45 @@
+{
+    "variantId": "muleships_boulder_Balanced",
+    "hullId": "muleships_boulder",
+    "displayName": "Balanced",
+    "goalVariant": true,
+    "fluxCapacitors": 14,
+    "fluxVents": 20,
+    "permaMods": [],
+    "hullMods": [
+        "blast_doors",
+        "targetingunit"
+    ],
+    "weaponGroups": [{
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "heavymortar",
+                "WS0002": "heavymortar"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "harpoon",
+                "WS0004": "harpoon"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "railgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "pdlaser",
+                "WS0006": "pdlaser"
+            }
+        }
+    ]
+}
