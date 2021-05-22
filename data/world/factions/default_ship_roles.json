@@ -6,9 +6,20 @@
 		"muleships_armoredkite_Standard": 3
 	},
 	"combatMedium":{
-		"muleships_boulder_Balanced": 2,
+		"muleships_boulder_Balanced": 4,
 		"muleships_boulder_Support": 2,
 		"muleships_boulder_p_Standard": 3
+	},
+	"combatLarge":{
+		"muleships_endeavour_Standard": 9999,
+		"muleships_endeavour_Specialist": 9999,
+		"muleships_endeavour_battle_Standard": 8,
+		"muleships_endeavour_battle_Artillery": 6,
+		"muleships_endeavour_battle_Support": 4,
+		"muleships_endeavour_battle_Overdriven": 2
+	},
+	"combatFreighterLarge":{
+		"muleships_endeavour_Standard": 9999
 	},
 	"combatFreighterSmall": {
 		"muleships_armoredkite_Standard": 2

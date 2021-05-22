@@ -1,0 +1,45 @@
+{
+    "variantId": "muleships_endeavour_Standard",
+    "hullId": "muleships_endeavour",
+    "displayName": "Standard",
+    "goalVariant": true,
+    "fluxCapacitors": 23,
+    "fluxVents": 30,
+    "permaMods": [],
+    "hullMods": [
+        "targetingunit"
+    ],
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS0004": "phasebeam"
+        }
+    }, {
+        "autofire": false,
+        "mode": "LINKED",
+        "weapons": {
+            "WS0010": "railgun",
+            "WS0011": "railgun"
+        }
+    }, {
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS0001": "pdlaser",
+            "WS0002": "pdlaser",
+            "WS0007": "pdlaser",
+            "WS0008": "pdlaser"
+        }
+    }, {
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS0005": "vulcan",
+            "WS0006": "vulcan"
+        }
+    }],
+    "wings": [
+        "broadsword_wing"
+    ]
+}

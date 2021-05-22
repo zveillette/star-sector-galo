@@ -1,141 +1,139 @@
 {
-  "hullName": "Boulder",
-  "hullId": "muleships_boulder",
-  "hullSize": "DESTROYER",
-  "spriteName": "graphics/ships/boulder/muleships_boulder.png",
-  "style": "MIDLINE",
-  "height": 124,
-  "width": 108,
-  "center": [54, 62],
-  "collisionRadius": 120,
-  "shieldCenter": [0, 0],
-  "shieldRadius": 100,
-  "viewOffset": 0,
-  "weaponSlots": [
-    {
-      "id": "WS0001",
-      "size": "MEDIUM",
-      "type": "BALLISTIC",
-      "mount": "HARDPOINT",
-      "arc": 10,
-      "angle": 0,
-      "locations": [52.5, 31]
-    },
-    {
-      "id": "WS0002",
-      "size": "MEDIUM",
-      "type": "BALLISTIC",
-      "mount": "HARDPOINT",
-      "arc": 10,
-      "angle": 0,
-      "locations": [52.5, -31]
-    },
-    {
-      "id": "WS0003",
-      "size": "SMALL",
-      "type": "MISSILE",
-      "mount": "HARDPOINT",
-      "arc": 5,
-      "angle": 0,
-      "locations": [55, 11]
-    },
-    {
-      "id": "WS0004",
-      "size": "SMALL",
-      "type": "MISSILE",
-      "mount": "HARDPOINT",
-      "arc": 5,
-      "angle": 0,
-      "locations": [55, -11]
-    },
-    {
-      "id": "WS0008",
-      "size": "SMALL",
-      "type": "HYBRID",
-      "mount": "TURRET",
-      "arc": 220,
-      "angle": 0,
-      "locations": [20, -0]
-    },
-    {
-      "id": "WS0005",
-      "size": "SMALL",
-      "type": "HYBRID",
-      "mount": "TURRET",
-      "arc": 220,
-      "angle": 125,
-      "locations": [-8, 39.5]
-    },
-    {
-      "id": "WS0006",
-      "size": "SMALL",
-      "type": "HYBRID",
-      "mount": "TURRET",
-      "arc": 220,
-      "angle": -125,
-      "locations": [-8, -39.5]
-    }
-  ],
-  "engineSlots": [
-    {
-      "location": [-59, -38],
-      "length": 75,
-      "width": 16,
-      "angle": 180,
-      "contrailSize": 16,
-      "style": "MIDLINE"
-    },
-    {
-      "location": [-59, 38],
-      "length": 75,
-      "width": 16,
-      "angle": -180,
-      "contrailSize": 16,
-      "style": "MIDLINE"
-    },
-    {
-      "location": [-57.5, -26.5],
-      "length": 69.5,
-      "width": 14,
-      "angle": 180,
-      "contrailSize": 14,
-      "style": "MIDLINE"
-    },
-    {
-      "location": [-57.5, 26.5],
-      "length": 69.5,
-      "width": 14,
-      "angle": -180,
-      "contrailSize": 14,
-      "style": "MIDLINE"
-    },
-    {
-      "location": [-57, -14.5],
-      "length": 55,
-      "width": 14,
-      "angle": 180,
-      "contrailSize": 14,
-      "style": "MIDLINE"
-    },
-    {
-      "location": [-57, 14.5],
-      "length": 55,
-      "width": 14,
-      "angle": -180,
-      "contrailSize": 14,
-      "style": "MIDLINE"
-    }
-  ],
-  "bounds": [
-    48.5, -31.5,
-    36, -44.5,
-    18.5, -32.5,
-    -8.5, -47.5,
-    -52.5, -41,
-    -52.5, 41,
-    -8.5, 47.5,
-    18.5, 32.5,
-    36, 44.5,
-    48.5, 31.5
-  ]
+    "hullName": "Boulder",
+    "hullId": "muleships_boulder",
+    "hullSize": "DESTROYER",
+    "spriteName": "graphics/ships/boulder/muleships_boulder.png",
+    "style": "MIDLINE",
+    "height": 124,
+    "width": 108,
+    "center": [54, 62],
+    "collisionRadius": 120,
+    "shieldCenter": [0, 0],
+    "shieldRadius": 100,
+    "viewOffset": 0,
+    "weaponSlots": [{
+            "id": "WS0001",
+            "size": "MEDIUM",
+            "type": "BALLISTIC",
+            "mount": "HARDPOINT",
+            "arc": 10,
+            "angle": 0,
+            "locations": [52.5, 31]
+        },
+        {
+            "id": "WS0002",
+            "size": "MEDIUM",
+            "type": "BALLISTIC",
+            "mount": "HARDPOINT",
+            "arc": 10,
+            "angle": 0,
+            "locations": [52.5, -31]
+        },
+        {
+            "id": "WS0003",
+            "size": "SMALL",
+            "type": "MISSILE",
+            "mount": "HARDPOINT",
+            "arc": 5,
+            "angle": 0,
+            "locations": [55, 11]
+        },
+        {
+            "id": "WS0004",
+            "size": "SMALL",
+            "type": "MISSILE",
+            "mount": "HARDPOINT",
+            "arc": 5,
+            "angle": 0,
+            "locations": [55, -11]
+        },
+        {
+            "id": "WS0008",
+            "size": "SMALL",
+            "type": "HYBRID",
+            "mount": "TURRET",
+            "arc": 220,
+            "angle": 0,
+            "locations": [20, -0]
+        },
+        {
+            "id": "WS0005",
+            "size": "SMALL",
+            "type": "HYBRID",
+            "mount": "TURRET",
+            "arc": 220,
+            "angle": 125,
+            "locations": [-8, 39.5]
+        },
+        {
+            "id": "WS0006",
+            "size": "SMALL",
+            "type": "HYBRID",
+            "mount": "TURRET",
+            "arc": 220,
+            "angle": -125,
+            "locations": [-8, -39.5]
+        }
+    ],
+    "engineSlots": [{
+            "location": [-59, -38],
+            "length": 75,
+            "width": 16,
+            "angle": 180,
+            "contrailSize": 16,
+            "style": "MIDLINE"
+        },
+        {
+            "location": [-59, 38],
+            "length": 75,
+            "width": 16,
+            "angle": -180,
+            "contrailSize": 16,
+            "style": "MIDLINE"
+        },
+        {
+            "location": [-57.5, -26.5],
+            "length": 69.5,
+            "width": 14,
+            "angle": 180,
+            "contrailSize": 14,
+            "style": "MIDLINE"
+        },
+        {
+            "location": [-57.5, 26.5],
+            "length": 69.5,
+            "width": 14,
+            "angle": -180,
+            "contrailSize": 14,
+            "style": "MIDLINE"
+        },
+        {
+            "location": [-57, -14.5],
+            "length": 55,
+            "width": 14,
+            "angle": 180,
+            "contrailSize": 14,
+            "style": "MIDLINE"
+        },
+        {
+            "location": [-57, 14.5],
+            "length": 55,
+            "width": 14,
+            "angle": -180,
+            "contrailSize": 14,
+            "style": "MIDLINE"
+        }
+    ],
+    "bounds": [
+        48.5, -31.5,
+        36, -44.5,
+        18.5, -32.5,
+        -8.5, -47.5,
+        -52.5, -41,
+        -52.5, 41,
+        -8.5, 47.5,
+        18.5, 32.5,
+        36, 44.5,
+        48.5, 31.5
+    ]
 }
