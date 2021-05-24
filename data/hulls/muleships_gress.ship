@@ -1,0 +1,87 @@
+{
+  "hullName": "Gress",
+  "hullId": "muleships_gress",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/muleships_gress.png",
+  "style": "MIDLINE",
+  "height": 74,
+  "width": 61,
+  "center": [30.5, 37],
+  "collisionRadius": 65,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 57.5,
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "id": "WS0003r",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 211,
+      "angle": 90,
+      "locations": [-17.5, 17]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 211,
+      "angle": -90,
+      "locations": [-17.5, -17]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [2, 0.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-35, 22],
+      "length": 33,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-35, -22],
+      "length": 33,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-34.5, 7],
+      "length": 54.5,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-34.5, -7],
+      "length": 54.5,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MIDLINE"
+    }
+  ],
+  "bounds": [
+    33, -12,
+    0.5, -16.5,
+    -11, -25.5,
+    -33, -23.5,
+    -33, 23.5,
+    -11, 25.5,
+    0.5, 16.5,
+    33, 12
+  ]
+}
