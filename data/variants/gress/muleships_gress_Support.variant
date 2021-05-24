@@ -1,0 +1,28 @@
+{
+    "variantId": "muleships_gress_Support",
+    "hullId": "muleships_gress",
+    "displayName": "Support",
+    "goalVariant": true,
+    "fluxCapacitors": 10,
+    "fluxVents": 7,
+    "permaMods": [],
+    "hullMods": [],
+    "weaponGroups": [{
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "swarmer"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "vulcan",
+                "WS0004": "vulcan"
+            }
+        }
+    ],
+    "modules": [],
+    "wings": []
+}

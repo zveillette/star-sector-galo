@@ -13,7 +13,7 @@
   "viewOffset": 0,
   "weaponSlots": [
     {
-      "id": "WS0003r",
+      "id": "WS0003",
       "size": "SMALL",
       "type": "BALLISTIC",
       "mount": "TURRET",

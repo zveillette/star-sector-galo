@@ -1,9 +1,15 @@
 {
 	"combatSmallForSmallFleet": {
-		"muleships_armoredkite_Standard": 3
+		"muleships_armoredkite_Standard": 3,
+
+		"muleships_gress_Standard": 5,
+		"muleships_gress_Strike": 2,
+		"muleships_gress_Support": 5
 	},
 	"combatSmall": {
-		"muleships_armoredkite_Standard": 3
+		"muleships_gress_Standard": 5,
+		"muleships_gress_Strike": 2,
+		"muleships_gress_Support": 5
 	},
 	"combatMedium":{
 		"muleships_boulder_Balanced": 4,
