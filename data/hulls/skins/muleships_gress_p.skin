@@ -1,0 +1,40 @@
+{
+    "baseHullId": "muleships_gress",
+    "skinHullId": "muleships_gress_p",
+    "hullName": "Gress (P)",
+    "ordnancePoints": 24,
+    "descriptionId": "muleships_gress",
+    "descriptionPrefix": "This ship has been heavily modified - and poorly maintained - by its pirate crew.",
+    "tags": ["pirate_bp"],
+    "tech": "Pirate",
+    "spriteName": "graphics/ships/gress/muleships_gress_p.png",
+    "baseValueMult": 0.9,
+    "removeHints": [],
+    "addHints": [],
+    "removeWeaponSlots": ["WS0004"],
+    "removeEngineSlots": [],
+    "removeBuiltInMods": [],
+    "removeBuiltInWeapons": [],
+    "builtInMods": [],
+    "builtInWeapons": {},
+    "weaponSlotChanges": {
+        "WS0001": {
+            "type": "MISSILE",
+            "size": "MEDIUM"
+        }
+    },
+    "engineSlotChanges": {
+        "0": {
+            "style": "LOW_TECH"
+        },
+        "1": {
+            "style": "LOW_TECH"
+        },
+        "2": {
+            "style": "LOW_TECH"
+        },
+        "3": {
+            "style": "LOW_TECH"
+        }
+    }
+}

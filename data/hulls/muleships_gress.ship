@@ -2,7 +2,7 @@
   "hullName": "Gress",
   "hullId": "muleships_gress",
   "hullSize": "FRIGATE",
-  "spriteName": "graphics/ships/muleships_gress.png",
+  "spriteName": "graphics/ships/gress/muleships_gress.png",
   "style": "MIDLINE",
   "height": 74,
   "width": 61,

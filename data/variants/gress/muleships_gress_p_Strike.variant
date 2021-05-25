@@ -1,0 +1,26 @@
+{
+    "variantId": "muleships_gress_p_Strike",
+    "hullId": "muleships_gress_p",
+    "displayName": "Strike (P)",
+    "fluxCapacitors": 6,
+    "fluxVents": 3,
+    "permaMods": [],
+    "hullMods": [],
+    "weaponGroups": [{
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "annihilatorpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "lightdualac"
+            }
+        }
+    ],
+    "modules": [],
+    "wings": []
+}
