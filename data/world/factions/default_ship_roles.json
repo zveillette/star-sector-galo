@@ -5,13 +5,13 @@
 		"muleships_gress_Standard": 5,
 		"muleships_gress_Strike": 2,
 		"muleships_gress_Support": 5,
-		"muleships_gress_p_Strike": 9999
+		"muleships_gress_p_Strike": 5
 	},
 	"combatSmall": {
 		"muleships_gress_Standard": 5,
 		"muleships_gress_Strike": 2,
 		"muleships_gress_Support": 5,
-		"muleships_gress_p_Strike": 9999
+		"muleships_gress_p_Strike": 5
 	},
 	"combatMedium":{
 		"muleships_boulder_Balanced": 4,
