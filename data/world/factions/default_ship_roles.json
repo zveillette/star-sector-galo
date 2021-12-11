@@ -1,7 +1,5 @@
 {
 	"combatSmallForSmallFleet": {
-		"muleships_armoredkite_Standard": 3,
-
 		"muleships_gress_Standard": 5,
 		"muleships_gress_Strike": 2,
 		"muleships_gress_Support": 5,
@@ -15,27 +13,12 @@
 	},
 	"combatMedium":{
 		"muleships_boulder_Balanced": 4,
-		"muleships_boulder_Support": 2,
-		"muleships_boulder_p_Standard": 3
+		"muleships_boulder_Support": 2
 	},
 	"combatLarge":{
-		"muleships_endeavour_Standard": 5,
-		"muleships_endeavour_Specialist": 4,
 		"muleships_endeavour_battle_Standard": 8,
 		"muleships_endeavour_battle_Artillery": 6,
 		"muleships_endeavour_battle_Support": 4,
 		"muleships_endeavour_battle_Overdriven": 2
-	},
-	"combatFreighterLarge":{
-		"muleships_endeavour_Standard": 8
-	},
-	"combatFreighterSmall": {
-		"muleships_armoredkite_Standard": 2
-	},
-	"civilianRandom": {
-		"muleships_armoredkite_Standard": 1
-	},
-	"personnelSmall": {
-		"muleships_armoredkite_Standard": 2
 	}
 }
