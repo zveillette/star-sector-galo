@@ -1,8 +1,10 @@
 {
-	"id":"MrMuleShips",
-	"name":"MrMule Ship Pack",
-	"author":"MrMule34",
+	"id":"galo-system",
+	"name":"Galo System",
+	"author":"zveillette",
 	"version":"0.0.1",
-	"description":"MrMule34's ship pack.",
-	"gameVersion":"0.95.1a"
+	"description":"Galo System",
+	"gameVersion":"0.95.1a",
+    "jars":["jars/jar.jar"],
+    "modPlugin":"com.zveillette.galo.GaloPlugin"
 }
