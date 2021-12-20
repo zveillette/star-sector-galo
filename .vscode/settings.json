@@ -1,3 +1,7 @@
 {
-    "java.project.sourcePaths": ["jar/src"]
+    "java.project.sourcePaths": [
+        "jar/src"
+    ],
+    "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "One Dark Pro Darker"
 }

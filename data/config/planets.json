@@ -1,0 +1,37 @@
+{
+    "GL_tomb": {
+        "name": "Tombworld",
+        "descriptionId": "gl_tombworld",
+        "tilt": -27,
+        "pitch": 2,
+        "rotation": -3,
+        "planetColor": [
+            255,
+            255,
+            255,
+            255
+        ],
+        "atmosphereThickness": 0,
+        "atmosphereThicknessMin": 12,
+        "atmosphereColor": [
+            100,
+            140,
+            160,
+            155
+        ],
+        "texture": "graphics/planets/GL_planet_tombworld.jpg",
+        "icon": "graphics/warroom/icon_planet.png",
+        "iconColor": [
+            102,
+            103,
+            106,
+            255
+        ],
+        "isStar": false,
+        "lightPosition": [
+            -2,
+            -8,
+            10
+        ]
+    }
+}

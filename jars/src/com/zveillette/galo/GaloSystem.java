@@ -9,6 +9,8 @@ import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
+
+import data.scripts.campaign.econ.GL_Conditions;
 public class GaloSystem {
     private static final String TROEL = "gl_troel";
     private static final String GALO_PRIME = "gl_galo_prime";
@@ -39,7 +41,7 @@ public class GaloSystem {
     }
 
     private void _createPlanets() {
-        PlanetAPI troel = system.addPlanet(TROEL, star, "Troel", "barren", 0, 150, 2500, 88);
+        PlanetAPI troel = system.addPlanet(TROEL, star, "Troel", "barren", 0, 80, 2500, 88);
         MarketAPI troelMarket = Global.getFactory().createMarket(TROEL + "_market", troel.getName(), 0);
         troelMarket.setPlanetConditionMarketOnly(true);
         troelMarket.addCondition(Conditions.VERY_HOT);
@@ -49,6 +51,13 @@ public class GaloSystem {
         troelMarket.addCondition(Conditions.RARE_ORE_SPARSE);
         troelMarket.setPrimaryEntity(troel);
 		troel.setMarket(troelMarket);
+
+        PlanetAPI galoPrime = system.addPlanet(GALO_PRIME, star, "Galo Prime", "GL_tomb", 0, 150, 5000, 360);
+        MarketAPI galoPrimeMarket = Global.getFactory().createMarket(GALO_PRIME + "_market", galoPrime.getName(), 0);
+        galoPrimeMarket.setPlanetConditionMarketOnly(true);
+        galoPrimeMarket.addCondition(GL_Conditions.TOMB_WORLD);
+        galoPrimeMarket.setPrimaryEntity(galoPrime);
+		galoPrime.setMarket(galoPrimeMarket);
     }
 
     private void _createMisc() {
