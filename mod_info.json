@@ -5,6 +5,6 @@
 	"version":"0.0.1",
 	"description":"Galo System",
 	"gameVersion":"0.95.1a",
-    "jars":["jars/jar.jar"],
+    "jars":["jars/jars.jar"],
     "modPlugin":"com.zveillette.galo.GaloPlugin"
 }

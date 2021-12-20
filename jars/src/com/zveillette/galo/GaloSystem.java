@@ -1,12 +1,18 @@
 package com.zveillette.galo;
+
+import java.util.Random;
+
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
-
 public class GaloSystem {
-    private static final String GALO_I = "galoI";
+    private static final String TROEL = "gl_troel";
+    private static final String GALO_PRIME = "gl_galo_prime";
+    private static final int MIN_STAR_RANGE = 10000;
 
     private static StarSystemAPI system = null;
     private static PlanetAPI star = null;
@@ -15,6 +21,7 @@ public class GaloSystem {
         _createSystem();
         _createStar();
         _createPlanets();
+        _createMisc();
     }
 
     private void _createSystem() {
@@ -24,11 +31,27 @@ public class GaloSystem {
     }
 
     private void _createStar() {
-        star = system.initStar("galo", "star_orange", 1500, 8500, -10500, 600);
+        Random rng = new Random();
+        int x = rng.nextInt(MIN_STAR_RANGE) + MIN_STAR_RANGE;
+        int y = rng.nextInt(MIN_STAR_RANGE) + MIN_STAR_RANGE;
+
+        star = system.initStar("galo", "star_red_giant", 1800, x, y, 600);
     }
 
     private void _createPlanets() {
-        PlanetAPI galoI = system.addPlanet("galoI", star, "Galo I", "barren-bombarded", 0, 30, 1500, 88);
-        galoI.addTag(GALO_I);
+        PlanetAPI troel = system.addPlanet(TROEL, star, "Troel", "barren", 0, 150, 2500, 88);
+        MarketAPI troelMarket = Global.getFactory().createMarket(TROEL + "_market", troel.getName(), 0);
+        troelMarket.setPlanetConditionMarketOnly(true);
+        troelMarket.addCondition(Conditions.VERY_HOT);
+        troelMarket.addCondition(Conditions.IRRADIATED);
+        troelMarket.addCondition(Conditions.NO_ATMOSPHERE);
+        troelMarket.addCondition(Conditions.ORE_MODERATE);
+        troelMarket.addCondition(Conditions.RARE_ORE_SPARSE);
+        troelMarket.setPrimaryEntity(troel);
+		troel.setMarket(troelMarket);
+    }
+
+    private void _createMisc() {
+        system.autogenerateHyperspaceJumpPoints(true, true);
     }
 }
