@@ -1,6 +1,6 @@
 {
-    "variantId": "muleships_gress_p_Strike",
-    "hullId": "muleships_gress_p",
+    "variantId": "gl_gress_p_Strike",
+    "hullId": "gl_gress_p",
     "displayName": "Strike (P)",
     "fluxCapacitors": 6,
     "fluxVents": 3,

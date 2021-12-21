@@ -1,8 +1,8 @@
 {
     "hullName": "Boulder",
-    "hullId": "muleships_boulder",
+    "hullId": "gl_boulder",
     "hullSize": "DESTROYER",
-    "spriteName": "graphics/ships/boulder/muleships_boulder.png",
+    "spriteName": "graphics/ships/boulder/gl_boulder.png",
     "style": "MIDLINE",
     "height": 124,
     "width": 108,

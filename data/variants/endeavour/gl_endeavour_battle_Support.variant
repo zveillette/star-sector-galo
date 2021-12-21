@@ -1,6 +1,6 @@
 {
-    "variantId": "muleships_endeavour_battle_Support",
-    "hullId": "muleships_endeavour_battle",
+    "variantId": "gl_endeavour_battle_Support",
+    "hullId": "gl_endeavour_battle",
     "displayName": "Support",
     "goalVariant": true,
     "fluxCapacitors": 2,

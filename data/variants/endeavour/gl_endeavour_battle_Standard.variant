@@ -1,6 +1,6 @@
 {
-    "variantId": "muleships_endeavour_battle_Standard",
-    "hullId": "muleships_endeavour_battle",
+    "variantId": "gl_endeavour_battle_Standard",
+    "hullId": "gl_endeavour_battle",
     "displayName": "Standard",
     "goalVariant": true,
     "fluxCapacitors": 22,

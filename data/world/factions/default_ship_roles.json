@@ -1,24 +1,24 @@
 {
 	"combatSmallForSmallFleet": {
-		"muleships_gress_Standard": 5,
-		"muleships_gress_Strike": 2,
-		"muleships_gress_Support": 5,
-		"muleships_gress_p_Strike": 5
+		"gl_gress_Standard": 5,
+		"gl_gress_Strike": 2,
+		"gl_gress_Support": 5,
+		"gl_gress_p_Strike": 5
 	},
 	"combatSmall": {
-		"muleships_gress_Standard": 5,
-		"muleships_gress_Strike": 2,
-		"muleships_gress_Support": 5,
-		"muleships_gress_p_Strike": 5
+		"gl_gress_Standard": 5,
+		"gl_gress_Strike": 2,
+		"gl_gress_Support": 5,
+		"gl_gress_p_Strike": 5
 	},
 	"combatMedium":{
-		"muleships_boulder_Balanced": 4,
-		"muleships_boulder_Support": 2
+		"gl_boulder_Balanced": 4,
+		"gl_boulder_Support": 2
 	},
 	"combatLarge":{
-		"muleships_endeavour_battle_Standard": 8,
-		"muleships_endeavour_battle_Artillery": 6,
-		"muleships_endeavour_battle_Support": 4,
-		"muleships_endeavour_battle_Overdriven": 2
+		"gl_endeavour_battle_Standard": 8,
+		"gl_endeavour_battle_Artillery": 6,
+		"gl_endeavour_battle_Support": 4,
+		"gl_endeavour_battle_Overdriven": 2
 	}
 }

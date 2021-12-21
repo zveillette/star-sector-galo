@@ -1,8 +1,8 @@
 {
     "hullName": "Endeavour (Combat)",
-    "hullId": "muleships_endeavour_battle",
+    "hullId": "gl_endeavour_battle",
     "hullSize": "CRUISER",
-    "spriteName": "graphics/ships/endeavour/muleships_endeavour_battle.png",
+    "spriteName": "graphics/ships/endeavour/gl_endeavour_battle.png",
     "style": "LOW_TECH",
     "height": 262,
     "width": 96,

@@ -1,6 +1,7 @@
 id,type,text1,text2,text3,notes
-muleships_boulder,SHIP,"The boulder was a first attempt to a new age of domain era midline destroyer. Although cheap, it received subsequent criticism for its lack of firepower.",,,
-muleships_endeavour_battle,SHIP,"An old, but reliable design, the Endeavour-class cruisers once sailed as the backbone of most navy. 
+gl_boulder,SHIP,"The boulder was a first attempt to a new age of domain era midline destroyer. Although cheap, it received subsequent criticism for its lack of firepower.",,,
+gl_endeavour_battle,SHIP,"An old, but reliable design, the Endeavour-class cruisers once sailed as the backbone of most navy. 
 Called the flying “brick” by its crew, its sleek profile was its best advantage. The ballistic fire it usually encountered often lacked accuracy, permitting for the ship to avoid most incoming firepower while delivering the killing blow. 
 With the rise of energy and enhanced weaponry, the ship was left out for better designs as it lacks the necessary armor to absorb these more accurate weapons.",,,
-muleships_gress,SHIP,"Lacking the flux and armor to work on his own, but too big to be a fighter, the Gress-class is an escort frigate. Meant to be expandable, the design is cheap and used across the sector.",,,
+gl_gress,SHIP,"Lacking the flux and armor to work on his own, but too big to be a fighter, the Gress-class is an escort frigate. Meant to be expandable, the design is cheap and used across the sector.",,,
+gl_tombworld,PLANET,A Terran world devastated by human hands. Lifeless and forgotten.,,,

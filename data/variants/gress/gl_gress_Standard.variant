@@ -1,6 +1,6 @@
 {
-    "variantId": "muleships_gress_Standard",
-    "hullId": "muleships_gress",
+    "variantId": "gl_gress_Standard",
+    "hullId": "gl_gress",
     "displayName": "Standard",
     "goalVariant": true,
     "fluxCapacitors": 7,

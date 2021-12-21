@@ -1,50 +1,54 @@
 {
-    "variantId": "muleships_endeavour_battle_Overdriven",
-    "hullId": "muleships_endeavour_battle",
-    "displayName": "Overdriven",
+    "variantId": "gl_endeavour_battle_Artillery",
+    "hullId": "gl_endeavour_battle",
+    "displayName": "Artillery",
     "goalVariant": true,
-    "fluxCapacitors": 1,
-    "fluxVents": 30,
+    "fluxCapacitors": 15,
+    "fluxVents": 20,
     "permaMods": [],
     "hullMods": [
-        "safetyoverrides",
-        "hardened_subsystems"
+        "targetingunit",
+        "missleracks"
     ],
     "weaponGroups": [{
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS0001": "heavymg"
+                "WS0001": "hveldriver"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0005": "harpoon",
+                "WS0006": "harpoon",
+                "WS0010": "harpoon",
+                "WS0011": "harpoon"
             }
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS0005": "lightdualmg",
-                "WS0006": "lightdualmg"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS0003": "sabotpod"
+                "WS0003": "harpoonpod"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS0002": "chaingun",
-                "WS0004": "chaingun"
+                "WS0002": "heavymauler",
+                "WS0004": "heavymauler"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS0007": "vulcan"
+                "WS0007": "vulcan",
+                "WS0012": "vulcan",
+                "WS0013": "vulcan"
             }
         }
     ]

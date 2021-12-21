@@ -1,6 +1,6 @@
 {
-    "variantId": "muleships_gress_Support",
-    "hullId": "muleships_gress",
+    "variantId": "gl_gress_Support",
+    "hullId": "gl_gress",
     "displayName": "Support",
     "goalVariant": true,
     "fluxCapacitors": 10,

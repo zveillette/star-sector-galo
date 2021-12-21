@@ -1,6 +1,6 @@
 {
-    "variantId": "muleships_boulder_Balanced",
-    "hullId": "muleships_boulder",
+    "variantId": "gl_boulder_Balanced",
+    "hullId": "gl_boulder",
     "displayName": "Balanced",
     "goalVariant": true,
     "fluxCapacitors": 14,
