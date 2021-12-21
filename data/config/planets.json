@@ -1,37 +1,20 @@
 {
     "GL_tomb": {
-        "name": "Tombworld",
+        "name": "Tomb",
         "descriptionId": "gl_tombworld",
         "tilt": -27,
         "pitch": 2,
-        "rotation": -3,
-        "planetColor": [
-            255,
-            255,
-            255,
-            255
-        ],
-        "atmosphereThickness": 0,
-        "atmosphereThicknessMin": 12,
-        "atmosphereColor": [
-            100,
-            140,
-            160,
-            155
-        ],
-        "texture": "graphics/planets/GL_planet_tombworld.jpg",
+        "rotation": -3.5,
+        "planetColor": [255, 255, 255, 255],
+        "atmosphereThickness": 0.5,
+        "atmosphereThicknessMin": 60,
+        "atmosphereColor": [62, 55, 48, 127],
+        "texture": "graphics/planets/gl_planet_tombworld.jpg",
         "icon": "graphics/warroom/icon_planet.png",
-        "iconColor": [
-            102,
-            103,
-            106,
-            255
-        ],
+        "iconColor": [102, 103, 106, 255],
         "isStar": false,
-        "lightPosition": [
-            -2,
-            -8,
-            10
-        ]
+        "lightPosition": [-2, -8, 10],
+        "cloudTexture": "graphics/planets/clouds_banded01.png",
+        "cloudColor": [25, 20, 20, 255]
     }
 }
