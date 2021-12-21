@@ -56,6 +56,7 @@ public class GaloSystem {
         MarketAPI galoPrimeMarket = Global.getFactory().createMarket(GALO_PRIME + "_market", galoPrime.getName(), 0);
         galoPrimeMarket.setPlanetConditionMarketOnly(true);
         galoPrimeMarket.addCondition(GL_Conditions.TOMB_WORLD);
+        galoPrimeMarket.addCondition(Conditions.DENSE_ATMOSPHERE);
         galoPrimeMarket.setPrimaryEntity(galoPrime);
 		galoPrime.setMarket(galoPrimeMarket);
     }
