@@ -1,6 +1,9 @@
 package com.zveillette.galo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.awt.Color;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PlanetAPI;
@@ -8,22 +11,38 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
+import com.fs.starfarer.api.impl.campaign.ids.Entities;
+import com.fs.starfarer.api.impl.campaign.ids.Terrain;
+import com.fs.starfarer.api.impl.campaign.procgen.PlanetConditionGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
+import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.special.ShipRecoverySpecial.ShipCondition;
 
 import data.scripts.campaign.econ.GL_Conditions;
+
 public class GaloSystem {
+    // Planets / moons
+    private static final int MIN_STAR_RANGE = 10000;
     private static final String TROEL = "gl_troel";
     private static final String GALO_PRIME = "gl_galo_prime";
-    private static final int MIN_STAR_RANGE = 10000;
+    private static final String GALO_PRIME_MOON = "gl_galo_prime_moon";
 
-    private static StarSystemAPI system = null;
-    private static PlanetAPI star = null;
+    // Miscs
+    private static final String INNER_ICE_RING = "gl_inner_ice_ring";
+    private static final String ASTEROID_BELT = "gl_asteroid_belt";
+
+    private StarSystemAPI system = null;
+    private PlanetAPI star = null;
+    private PlanetAPI troel = null;
+    private PlanetAPI galoPrime = null;
+    private PlanetAPI galoPrimeMoon = null;
+    private Random rng = new Random();
 
     public GaloSystem() {
         _createSystem();
         _createStar();
         _createPlanets();
         _createMisc();
+        _createDerelicts();
     }
 
     private void _createSystem() {
@@ -33,7 +52,6 @@ public class GaloSystem {
     }
 
     private void _createStar() {
-        Random rng = new Random();
         int x = rng.nextInt(MIN_STAR_RANGE) + MIN_STAR_RANGE;
         int y = rng.nextInt(MIN_STAR_RANGE) + MIN_STAR_RANGE;
 
@@ -41,27 +59,44 @@ public class GaloSystem {
     }
 
     private void _createPlanets() {
-        PlanetAPI troel = system.addPlanet(TROEL, star, "Troel", "barren", 0, 80, 2500, 88);
-        MarketAPI troelMarket = Global.getFactory().createMarket(TROEL + "_market", troel.getName(), 0);
-        troelMarket.setPlanetConditionMarketOnly(true);
-        troelMarket.addCondition(Conditions.VERY_HOT);
-        troelMarket.addCondition(Conditions.IRRADIATED);
-        troelMarket.addCondition(Conditions.NO_ATMOSPHERE);
-        troelMarket.addCondition(Conditions.ORE_MODERATE);
-        troelMarket.addCondition(Conditions.RARE_ORE_SPARSE);
-        troelMarket.setPrimaryEntity(troel);
-		troel.setMarket(troelMarket);
+        troel = system.addPlanet(TROEL, star, "Troel", "barren", 0, 80, 2500f, 88);
+        PlanetConditionGenerator.generateConditionsForPlanet(troel, StarAge.OLD);
 
-        PlanetAPI galoPrime = system.addPlanet(GALO_PRIME, star, "Galo Prime", "GL_tomb", 0, 150, 5000, 360);
+        galoPrime = system.addPlanet(GALO_PRIME, star, "Galo Prime", "GL_tomb", 0, 150, 7000f, 360);
         MarketAPI galoPrimeMarket = Global.getFactory().createMarket(GALO_PRIME + "_market", galoPrime.getName(), 0);
         galoPrimeMarket.setPlanetConditionMarketOnly(true);
         galoPrimeMarket.addCondition(GL_Conditions.TOMB_WORLD);
         galoPrimeMarket.addCondition(Conditions.DENSE_ATMOSPHERE);
+        galoPrimeMarket.addCondition(Conditions.ORE_ULTRARICH);
+        galoPrimeMarket.addCondition(Conditions.RUINS_EXTENSIVE);
+        galoPrimeMarket.addCondition(Conditions.FARMLAND_POOR);
         galoPrimeMarket.setPrimaryEntity(galoPrime);
-		galoPrime.setMarket(galoPrimeMarket);
+        galoPrime.setMarket(galoPrimeMarket);
+
+        galoPrimeMoon = system.addPlanet(GALO_PRIME_MOON, galoPrime, "Galo Prime Moon", "barren-bombarded", 0, 30, 600f,
+                15);
+        PlanetConditionGenerator.generateConditionsForPlanet(galoPrimeMoon, StarAge.OLD);
+        galoPrimeMoon.getMarket().addCondition(Conditions.DECIVILIZED);
     }
 
     private void _createMisc() {
+        system.addRingBand(star, "misc", "rings_dust0", 256f, 4, Color.white, 256f, 4000f, 295f,
+                Terrain.ASTEROID_BELT, INNER_ICE_RING);
+        system.addAsteroidBelt(star, 900, 10000, 500, 300, 300, Terrain.ASTEROID_BELT, ASTEROID_BELT);
+
         system.autogenerateHyperspaceJumpPoints(true, true);
+    }
+
+    private void _createDerelicts() {
+        // Add mining station orbiting Troel
+        SalvageGen.addGenericDerelict(system, troel, Entities.STATION_MINING, 200f);
+
+        // Generate cluster of derelicts around Galo Prime
+        List<String> galoPrimeShips = new ArrayList<String>();
+        galoPrimeShips.add("brawler_Elite");
+        galoPrimeShips.add("condor_Attack");
+        galoPrimeShips.add("phaeton_Standard");
+        galoPrimeShips.add("buffalo_Standard");
+        SalvageGen.addShipDerelicts(system, galoPrime, galoPrimeShips, ShipCondition.AVERAGE, 400f, 200f);
     }
 }
