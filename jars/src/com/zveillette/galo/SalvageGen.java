@@ -117,9 +117,7 @@ public class SalvageGen {
         DerelictShipData params = new DerelictShipData(new PerShipData(variantId, condition), false);
         SectorEntityToken ship = BaseThemeGenerator.addSalvageEntity(system, Entities.WRECK, Factions.NEUTRAL, params);
         ship.setDiscoverable(true);
-
-        float orbitDays = orbitRadius / (10f + (float) Math.random() * 5f);
-        ship.setCircularOrbit(focus, (float) Math.random() * 360f, orbitRadius, orbitDays);
+        ship.setCircularOrbit(focus, (float) Math.random() * 360f, orbitRadius, Utils.getOrbitDays(orbitRadius));
 
         if (recoverable) {
             ShipRecoverySpecialCreator creator = new ShipRecoverySpecialCreator(null, 0, 0, false, null, null);
@@ -133,12 +131,19 @@ public class SalvageGen {
      */
     public static SectorEntityToken addSalvage(StarSystemAPI system, SectorEntityToken focus, String entity,
             float orbitRadius) {
-        SectorEntityToken derelict = BaseThemeGenerator.addSalvageEntity(system, entity, Factions.NEUTRAL);
+        SectorEntityToken derelict = BaseThemeGenerator.addSalvageEntity(system, entity.toString(), Factions.NEUTRAL);
         derelict.setDiscoverable(true);
-
-        float orbitDays = orbitRadius / (10f + (float) Math.random() * 5f);
-        derelict.setCircularOrbit(focus, (float) Math.random() * 360f, orbitRadius, orbitDays);
+        derelict.setCircularOrbit(focus, (float) Math.random() * 360f, orbitRadius, Utils.getOrbitDays(orbitRadius));
 
         return derelict;
+    }
+
+    public static SectorEntityToken addCustomEntity(StarSystemAPI system, SectorEntityToken focus, String id,
+            String name, String entity, String faction, float orbitRadius) {
+        SectorEntityToken newEntity = system.addCustomEntity(id, name, entity, faction);
+        newEntity.setDiscoverable(true);
+        newEntity.setCircularOrbit(focus, (float) Math.random() * 360f, orbitRadius, Utils.getOrbitDays(orbitRadius));
+
+        return newEntity;
     }
 }
