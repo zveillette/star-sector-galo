@@ -1,7 +1,5 @@
 package com.zveillette.galo;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.awt.Color;
 
@@ -89,14 +87,10 @@ public class GaloSystem {
 
     private void _createDerelicts() {
         // Add mining station orbiting Troel
-        SalvageGen.addGenericDerelict(system, troel, Entities.STATION_MINING, 200f);
+        SalvageGen.addSalvage(system, troel, Entities.STATION_MINING, 200f);
 
         // Generate cluster of derelicts around Galo Prime
-        List<String> galoPrimeShips = new ArrayList<String>();
-        galoPrimeShips.add("brawler_Elite");
-        galoPrimeShips.add("condor_Attack");
-        galoPrimeShips.add("phaeton_Standard");
-        galoPrimeShips.add("buffalo_Standard");
-        SalvageGen.addShipDerelicts(system, galoPrime, galoPrimeShips, ShipCondition.AVERAGE, 400f, 200f);
+        SalvageGen.addDerelicts(system, galoPrime, 3, SalvageGen.ShipRarity.COMMON, ShipCondition.BATTERED, 400f, 200f);
+        SalvageGen.addDerelicts(system, galoPrime, 2, SalvageGen.ShipRarity.UNCOMMON, ShipCondition.WRECKED, 400f, 200f);
     }
 }
