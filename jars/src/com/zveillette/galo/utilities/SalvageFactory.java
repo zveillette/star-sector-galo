@@ -1,4 +1,4 @@
-package com.zveillette.galo;
+package com.zveillette.galo.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import com.fs.starfarer.api.util.Misc;
 /**
  * Salvage helper for derelicts and other entities
  */
-public class SalvageGen {
+public class SalvageFactory {
     private static final String[] COMMON_SHIPS = {
             "condor_Attack",
             "buffalo_Standard",
