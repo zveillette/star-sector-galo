@@ -13,7 +13,8 @@
 	},
 	"combatMedium":{
 		"gl_boulder_Balanced": 4,
-		"gl_boulder_Support": 2
+		"gl_boulder_Support": 2,
+		"gl_endeavour_battle_Standard": 2
 	},
 	"combatLarge":{
 		"gl_endeavour_battle_Standard": 8,

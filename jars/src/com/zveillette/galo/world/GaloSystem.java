@@ -4,21 +4,16 @@ import java.util.Random;
 import java.awt.Color;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
-import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
-import com.fs.starfarer.api.campaign.JumpPointAPI.JumpDestination;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.Entities;
-import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Terrain;
 import com.fs.starfarer.api.impl.campaign.procgen.PlanetConditionGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.special.ShipRecoverySpecial.ShipCondition;
-import com.zveillette.galo.utilities.GaloFleetFactory;
 import com.zveillette.galo.utilities.SalvageFactory;
 import com.zveillette.galo.utilities.Utils;
 
@@ -26,14 +21,15 @@ import data.scripts.campaign.econ.GL_Conditions;
 
 public class GaloSystem {
     // Planets / moons
-    private static final String GALO = "gl_galo";
+    public static final String GALO_SYS = "Galo";
+    public static final String GALO = "gl_galo";
     private static final int MIN_STAR_RANGE = 10000;
-    private static final String TROEL = "gl_troel";
-    private static final String GALO_PRIME = "gl_galo_prime";
-    private static final String GALO_PRIME_MOON = "gl_galo_prime_moon";
-    private static final String BWEDEL = "gl_bwedel";
-    private static final String BWEDEL_I = "gl_bwedel_i";
-    private static final String BWEDEL_II = "gl_bwedel_ii";
+    public static final String TROEL = "gl_troel";
+    public static final String GALO_PRIME = "gl_galo_prime";
+    public static final String GALO_PRIME_MOON = "gl_galo_prime_moon";
+    public static final String BWEDEL = "gl_bwedel";
+    public static final String BWEDEL_I = "gl_bwedel_i";
+    public static final String BWEDEL_II = "gl_bwedel_ii";
 
     // Orbit radiuses
     private static final float TROEL_RADIUS = 2500f;
@@ -66,7 +62,7 @@ public class GaloSystem {
 
     private void _createSystem() {
         SectorAPI sector = Global.getSector();
-        system = sector.createStarSystem("Galo");
+        system = sector.createStarSystem(GALO_SYS);
         system.setAge(StarAge.OLD);
     }
 
@@ -146,22 +142,5 @@ public class GaloSystem {
         SalvageFactory.addDerelicts(system, galoPrime, 2, SalvageFactory.ShipRarity.UNCOMMON, ShipCondition.WRECKED,
                 400f,
                 200f);
-    }
-
-    /**
-     * Spawn galo patrolling fleet close to Troel
-     */
-    public void spawnFleetOnSystemEntered(CampaignFleetAPI fleet, SectorEntityToken from, JumpDestination to,
-            StarSystemAPI sys) {
-        if (sys.getEntityById(GALO) == null) {
-            return;
-        }
-
-        // Avoid spawning fleet if player own the market
-        if (troel.getMarket().isPlayerOwned()) {
-            return;
-        }
-
-        GaloFleetFactory.createFleet(troel.getLocationInHyperspace(), Factions.PIRATES);
     }
 }
