@@ -19,7 +19,6 @@
 	"combatLarge":{
 		"gl_endeavour_battle_Standard": 8,
 		"gl_endeavour_battle_Artillery": 6,
-		"gl_endeavour_battle_Support": 4,
 		"gl_endeavour_battle_Overdriven": 2
 	}
 }

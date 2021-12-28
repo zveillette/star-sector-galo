@@ -1,159 +1,143 @@
 {
-    "hullName": "Endeavour (Combat)",
-    "hullId": "gl_endeavour_battle",
-    "hullSize": "CRUISER",
-    "spriteName": "graphics/ships/endeavour/gl_endeavour_battle.png",
-    "style": "LOW_TECH",
-    "height": 262,
-    "width": 96,
-    "center": [48, 128.5],
-    "collisionRadius": 185,
-    "shieldCenter": [0, 0],
-    "shieldRadius": 165,
-    "viewOffset": 0,
-    "weaponSlots": [{
-            "id": "WS0003",
-            "size": "MEDIUM",
-            "type": "MISSILE",
-            "mount": "TURRET",
-            "arc": 360,
-            "angle": 0,
-            "locations": [-6, -0]
-        },
-        {
-            "id": "WS0007",
-            "size": "SMALL",
-            "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 135,
-            "angle": 180,
-            "locations": [-85.5, -0]
-        },
-        {
-            "id": "WS0001",
-            "size": "MEDIUM",
-            "type": "BALLISTIC",
-            "mount": "HARDPOINT",
-            "arc": 0,
-            "angle": 0,
-            "locations": [124, -0.5]
-        },
-        {
-            "id": "WS0002",
-            "size": "MEDIUM",
-            "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 131,
-            "angle": 55,
-            "locations": [70.5, 15.5]
-        },
-        {
-            "id": "WS0004",
-            "size": "MEDIUM",
-            "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 131,
-            "angle": -55,
-            "locations": [70.5, -15.5]
-        },
-        {
-            "id": "WS0005",
-            "size": "SMALL",
-            "type": "COMPOSITE",
-            "mount": "HARDPOINT",
-            "arc": 0,
-            "angle": 0,
-            "locations": [109.5, 26]
-        },
-        {
-            "id": "WS0006",
-            "size": "SMALL",
-            "type": "COMPOSITE",
-            "mount": "HARDPOINT",
-            "arc": 0,
-            "angle": -0,
-            "locations": [109.5, -26]
-        },
-        {
-            "id": "WS0010",
-            "size": "SMALL",
-            "type": "MISSILE",
-            "mount": "HARDPOINT",
-            "arc": 0,
-            "angle": 90,
-            "locations": [28.5, 31]
-        },
-        {
-            "id": "WS0011",
-            "size": "SMALL",
-            "type": "MISSILE",
-            "mount": "HARDPOINT",
-            "arc": 0,
-            "angle": -90,
-            "locations": [28.5, -31]
-        },
-        {
-            "id": "WS0012",
-            "size": "SMALL",
-            "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 171,
-            "angle": 90,
-            "locations": [-23.5, 37.5]
-        },
-        {
-            "id": "WS0013",
-            "size": "SMALL",
-            "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 171,
-            "angle": -90,
-            "locations": [-23.5, -37.5]
-        }
-    ],
-    "engineSlots": [{
-            "location": [-122, 35.5],
-            "length": 60,
-            "width": 17,
-            "angle": 180,
-            "contrailSize": 17,
-            "style": "LOW_TECH"
-        },
-        {
-            "location": [-122, -35.5],
-            "length": 60,
-            "width": 17,
-            "angle": -180,
-            "contrailSize": 17,
-            "style": "LOW_TECH"
-        },
-        {
-            "location": [-121.5, 15],
-            "length": 76.5,
-            "width": 22,
-            "angle": 180,
-            "contrailSize": 22,
-            "style": "LOW_TECH"
-        },
-        {
-            "location": [-121.5, -15],
-            "length": 76.5,
-            "width": 22,
-            "angle": -180,
-            "contrailSize": 22,
-            "style": "LOW_TECH"
-        }
-    ],
-    "bounds": [
-        121, -12.5,
-        71.5, -29,
-        -46, -29.5,
-        -76, -41.5,
-        -119.5, -41,
-        -119.5, 41,
-        -76, 41.5,
-        -46, 29.5,
-        71.5, 29,
-        121, 12.5
-    ]
+  "hullName": "Endeavour (Combat)",
+  "hullId": "gl_endeavour_battle",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/ships/endeavour/gl_endeavour_battle.png",
+  "style": "LOW_TECH",
+  "height": 262,
+  "width": 96,
+  "center": [48, 128.5],
+  "collisionRadius": 185,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 165,
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "TURRET",
+      "arc": 360,
+      "angle": 0,
+      "locations": [-6, -0]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": 180,
+      "locations": [-85.5, -0]
+    },
+    {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "COMPOSITE",
+      "mount": "HARDPOINT",
+      "arc": 25,
+      "angle": 0,
+      "locations": [114, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 131,
+      "angle": 55,
+      "locations": [70.5, 15.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 131,
+      "angle": -55,
+      "locations": [70.5, -15.5]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 90,
+      "locations": [28.5, 28]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -90,
+      "locations": [28.5, -28]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 171,
+      "angle": 90,
+      "locations": [-23.5, 37.5]
+    },
+    {
+      "id": "WS0013",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 171,
+      "angle": -90,
+      "locations": [-23.5, -37.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-122, 35.5],
+      "length": 60,
+      "width": 17,
+      "angle": 180,
+      "contrailSize": 17,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-122, -35.5],
+      "length": 60,
+      "width": 17,
+      "angle": -180,
+      "contrailSize": 17,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-121.5, 15],
+      "length": 76.5,
+      "width": 22,
+      "angle": 180,
+      "contrailSize": 22,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-121.5, -15],
+      "length": 76.5,
+      "width": 22,
+      "angle": -180,
+      "contrailSize": 22,
+      "style": "LOW_TECH"
+    }
+  ],
+  "bounds": [
+    119, -23,
+    70, -34,
+    -23.5, -40,
+    -76, -41.5,
+    -119.5, -41,
+    -119.5, 41,
+    -76, 41.5,
+    -23.5, 40,
+    70, 34,
+    119, 23
+  ]
 }
