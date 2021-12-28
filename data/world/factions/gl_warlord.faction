@@ -20,28 +20,28 @@
 		"fringe": 1,
 		"modern": 1,
 		"world": 1,
-		"future": 1,
 		"myth": 1,
-		"old english": 1,
-		"pirate": 1
+		"old english": 1
 	},
 	"variantOverrides": {},
 	"hullFrequency": {
-		"tags": {},
-		"hulls": {}
+		"tags": {
+			"gl_warlord": 2
+		},
+		"hulls": {
+			"lasher": 2
+		}
 	},
 	"shipsWhenImporting": {
-		"tags": ["base_bp"],
+		"tags": ["base_bp", "gl_warlord"],
 		"hulls": [
-			"atlas2",
-			"gl_endeavour_battle"
+			"lasher"
 		]
 	},
 	"knownShips": {
-		"tags": ["base_bp"],
+		"tags": ["base_bp", "gl_warlord"],
 		"hulls": [
-			"atlas2",
-			"gl_endeavour_battle"
+			"lasher"
 		]
 	},
 	"priorityShips": {
@@ -188,14 +188,11 @@
 	},
 	"custom": {
 		"decentralized": true,
+		"engagesInHostilities":true,
 		"engageWhenEvenStrength": true,
 		"exemptFromFoodShortages": true,
-		"willTradeWhenHostile": true,
 		"ignoreTradeWithEnemiesForReputation": true,
 		"postsNoBounties": true,
-		"offerMissionsWhenHostile": true,
-		"allowsTransponderOffTrade": true,
-		"patrolsHaveNoPatrolMemoryKey": true,
 		"fightToTheLast": true,
 		"pirateBaseStationTypes": {
 			"orbitalstation": 10,
