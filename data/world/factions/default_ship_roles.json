@@ -14,11 +14,17 @@
 	"combatMedium":{
 		"gl_boulder_Balanced": 4,
 		"gl_boulder_Support": 2,
-		"gl_endeavour_battle_Standard": 2
+		"gl_endeavour_battle_Standard": 4,
+		"gl_endeavour_battle_Artillery": 4,
+		"gl_endeavour_carrier_Assault": 2,
+		"gl_endeavour_carrier_Strike": 3
 	},
 	"combatLarge":{
 		"gl_endeavour_battle_Standard": 8,
 		"gl_endeavour_battle_Artillery": 6,
-		"gl_endeavour_battle_Overdriven": 2
+		"gl_endeavour_battle_Overdriven": 2,
+		"gl_endeavour_carrier_Assault": 6,
+		"gl_endeavour_carrier_Support": 3,
+		"gl_endeavour_carrier_Strike": 7
 	}
 }

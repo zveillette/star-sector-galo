@@ -1,0 +1,107 @@
+{
+  "hullName": "Endeavour (Carrier)",
+  "hullId": "gl_endeavour_carrier",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/ships/endeavour/gl_endeavour_carrier.png",
+  "style": "LOW_TECH",
+  "height": 262,
+  "width": 96,
+  "center": [48, 135],
+  "collisionRadius": 195,
+  "shieldCenter": [-0.5, -0],
+  "shieldRadius": 181.5,
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": 180,
+      "locations": [-92, 0]
+    },
+    {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": 0,
+      "locations": [107.5, 0]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 0,
+      "locations": [62.5, -0]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "LAUNCH_BAY",
+      "mount": "TURRET",
+      "arc": 186,
+      "angle": 90,
+      "locations": [-28, 37]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "LAUNCH_BAY",
+      "mount": "TURRET",
+      "arc": 186,
+      "angle": -90,
+      "locations": [-28, -37]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-128.5, 35.5],
+      "length": 60,
+      "width": 17,
+      "angle": 180,
+      "contrailSize": 17,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-128.5, -35.5],
+      "length": 60,
+      "width": 17,
+      "angle": -180,
+      "contrailSize": 17,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-128, 15],
+      "length": 76.5,
+      "width": 22,
+      "angle": 180,
+      "contrailSize": 22,
+      "style": "LOW_TECH"
+    },
+    {
+      "location": [-128, -15],
+      "length": 76.5,
+      "width": 22,
+      "angle": -180,
+      "contrailSize": 22,
+      "style": "LOW_TECH"
+    }
+  ],
+  "bounds": [
+    112.5, -23,
+    63.5, -34,
+    -30, -40,
+    -82.5, -41.5,
+    -126, -41,
+    -126, 41,
+    -82.5, 41.5,
+    -30, 40,
+    63.5, 34,
+    112.5, 23
+  ]
+}
