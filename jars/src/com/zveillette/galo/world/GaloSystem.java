@@ -11,9 +11,12 @@ import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Conditions;
 import com.fs.starfarer.api.impl.campaign.ids.Entities;
 import com.fs.starfarer.api.impl.campaign.ids.Terrain;
+import com.fs.starfarer.api.impl.campaign.procgen.NebulaEditor;
 import com.fs.starfarer.api.impl.campaign.procgen.PlanetConditionGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.special.ShipRecoverySpecial.ShipCondition;
+import com.fs.starfarer.api.impl.campaign.terrain.HyperspaceTerrainPlugin;
+import com.fs.starfarer.api.util.Misc;
 import com.zveillette.galo.utilities.SalvageFactory;
 import com.zveillette.galo.utilities.Utils;
 
@@ -130,6 +133,14 @@ public class GaloSystem {
 
         // Jump points
         system.autogenerateHyperspaceJumpPoints(true, true);
+
+        // Remove hyperspace storms around system
+        HyperspaceTerrainPlugin plugin = (HyperspaceTerrainPlugin) Misc.getHyperspaceTerrain().getPlugin();
+        NebulaEditor editor = new NebulaEditor(plugin);
+
+        float minRadius = plugin.getTileSize() * 2f;
+        editor.clearArc(system.getLocation().x, system.getLocation().y, 0, 300f + minRadius * 0.5f, 0, 360f);
+        editor.clearArc(system.getLocation().x, system.getLocation().y, 0, 300f + minRadius, 0, 360f, 0.25f);
     }
 
     private void _createDerelicts() {
