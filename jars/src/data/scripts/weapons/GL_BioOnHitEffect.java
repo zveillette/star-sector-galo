@@ -1,5 +1,7 @@
 package data.scripts.weapons;
 
+import java.util.Date;
+
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseCombatLayeredRenderingPlugin;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
@@ -24,35 +26,6 @@ public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implemen
 
     public GL_BioOnHitEffect() {}
 
-    public GL_BioOnHitEffect(ShipAPI target) {
-        this.target = target;
-
-        interval = new IntervalUtil(2f, 3f);
-		interval.forceIntervalElapsed();
-    }
-
-    public void init(CombatEntityAPI entity) {
-        super.init(entity);
-    }
-
-    public void advance(float amount) {
-        if (Global.getCombatEngine().isPaused()) {
-            return;
-        }
-
-        crImpact = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_IMPACT);
-        interval.advance(amount);
-        if (interval.intervalElapsed()) {
-            interval.setElapsed(0);
-            target.setCustomData(CUSTOM_DATA_CR_IMPACT, --crImpact);
-            logger.info("CR DEGRADE: " + crImpact);
-		}
-    }
-
-    public boolean isExpired() {
-        return crImpact == 0 || !target.isAlive() || !Global.getCombatEngine().isEntityInPlay(target);
-    }
-
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean isShield,
             ApplyDamageResultAPI damageResult, CombatEngineAPI engine) {
@@ -69,6 +42,7 @@ public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implemen
         Integer crImpact = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_IMPACT);
         if (crImpact != null) {
             target.setCustomData(CUSTOM_DATA_CR_IMPACT, crImpact + 5);
+            return;
         }
 
         target.setCustomData(CUSTOM_DATA_CR_IMPACT, 5);
@@ -76,4 +50,35 @@ public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implemen
         CombatEntityAPI entity = engine.addLayeredRenderingPlugin(effect);
         entity.getLocation().set(proj.getLocation());
     }
+
+    //----------------------------------------------------------------------------------------------
+    // HANDLE LASTING EFFECT
+    //----------------------------------------------------------------------------------------------
+    public GL_BioOnHitEffect(ShipAPI target) {
+        this.target = target;
+
+        interval = new IntervalUtil(3f, 5f);
+    }
+
+    public void init(CombatEntityAPI entity) {
+        super.init(entity);
+    }
+
+    public void advance(float amount) {
+        if (Global.getCombatEngine().isPaused()) {
+            return;
+        }
+
+        crImpact = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_IMPACT);
+        interval.advance(amount);
+        if (interval.intervalElapsed()) {
+            target.setCustomData(CUSTOM_DATA_CR_IMPACT, --crImpact);
+           // target.setCurrentCR(target.getCurrentCR() - 1f);
+            logger.info("CR DEGRADE: " + new Date().toString() + " - " + crImpact);
+		}
+    }
+
+    public boolean isExpired() {
+        return crImpact == 0 || !target.isAlive() || !Global.getCombatEngine().isEntityInPlay(target);
+    }   
 }
