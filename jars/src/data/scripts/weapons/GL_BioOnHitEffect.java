@@ -17,14 +17,16 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implements OnHitEffectPlugin {
 
-    private final static String CUSTOM_DATA_CR_IMPACT = "GL_BIO_CR_IMPACT";
+    private final static String CUSTOM_DATA_CR_TICKS = "GL_BIO_CR_TICKS";
     private final static Logger logger = Global.getLogger(GL_BioOnHitEffect.class);
 
     private ShipAPI target;
-    private Integer crImpact = 5;
+    private Integer ticks;
+    private float crLossPerTick;
     private IntervalUtil interval;
 
-    public GL_BioOnHitEffect() {}
+    public GL_BioOnHitEffect() {
+    }
 
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean isShield,
@@ -38,24 +40,44 @@ public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implemen
             return;
         }
 
-        // Make sure we only have 1 watcher for bio cr degradation
-        Integer crImpact = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_IMPACT);
-        if (crImpact != null) {
-            target.setCustomData(CUSTOM_DATA_CR_IMPACT, crImpact + 5);
+        ShipAPI ship = (ShipAPI) target;
+        if (!ship.isAlive()) {
             return;
         }
 
-        target.setCustomData(CUSTOM_DATA_CR_IMPACT, 5);
-        GL_BioOnHitEffect effect = new GL_BioOnHitEffect((ShipAPI) target);
+        // Calculate amount of tick for cr degradation
+        float projDamage = proj.getDamageAmount();
+        float shipHullPoints = ship.getMutableStats().getHullBonus()
+                .computeEffective(ship.getHullSpec().getHitpoints());
+        float shipMinCrew = ship.getMutableStats().getMinCrewMod().computeEffective(ship.getHullSpec().getMinCrew());
+        Integer tickAmount = (int) Math.floor(shipMinCrew / shipHullPoints * projDamage * 2);
+
+        // Make sure we only have 1 watcher for bio cr degradation
+        Integer crTicks = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_TICKS);
+        if (crTicks != null && crTicks != 0) {
+            target.setCustomData(CUSTOM_DATA_CR_TICKS, crTicks + tickAmount);
+            return;
+        }
+
+        // Calculate cr loss for each tick
+        float crLossPerTick = (float) Math.floor((projDamage / shipHullPoints) * 200) / 100;
+        if (crLossPerTick > 0.15f) {
+            crLossPerTick = 0.15f;
+        }
+
+        // Create effect
+        target.setCustomData(CUSTOM_DATA_CR_TICKS, tickAmount);
+        GL_BioOnHitEffect effect = new GL_BioOnHitEffect(ship, crLossPerTick);
         CombatEntityAPI entity = engine.addLayeredRenderingPlugin(effect);
         entity.getLocation().set(proj.getLocation());
     }
 
-    //----------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------
     // HANDLE LASTING EFFECT
-    //----------------------------------------------------------------------------------------------
-    public GL_BioOnHitEffect(ShipAPI target) {
+    // ----------------------------------------------------------------------------------------------
+    public GL_BioOnHitEffect(ShipAPI target, float crLossPerTick) {
         this.target = target;
+        this.crLossPerTick = crLossPerTick;
 
         interval = new IntervalUtil(3f, 5f);
     }
@@ -69,16 +91,17 @@ public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implemen
             return;
         }
 
-        crImpact = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_IMPACT);
+        ticks = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_TICKS);
         interval.advance(amount);
         if (interval.intervalElapsed()) {
-            target.setCustomData(CUSTOM_DATA_CR_IMPACT, --crImpact);
-           // target.setCurrentCR(target.getCurrentCR() - 1f);
-            logger.info("CR DEGRADE: " + new Date().toString() + " - " + crImpact);
-		}
+            target.setCustomData(CUSTOM_DATA_CR_TICKS, --ticks);
+            target.setCurrentCR(target.getCurrentCR() - crLossPerTick);
+            logger.info("CR DEGRADE: " + new Date().toString() + " - " + ticks + " - current cr: "
+                    + target.getCurrentCR() + " CR DEGRADATION BY: " + crLossPerTick);
+        }
     }
 
     public boolean isExpired() {
-        return crImpact == 0 || !target.isAlive() || !Global.getCombatEngine().isEntityInPlay(target);
-    }   
+        return ticks == 0 || !target.isAlive() || !Global.getCombatEngine().isEntityInPlay(target);
+    }
 }
