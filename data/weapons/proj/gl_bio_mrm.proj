@@ -28,7 +28,7 @@
     "fadeTime": 0.5, #fadeout duration 
     "engineSpec": {
         "turnAcc": 120,
-        "turnRate": 30,
+        "turnRate": 40,
         "acc": 750,
         "dec": 200
     },

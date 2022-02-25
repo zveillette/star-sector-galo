@@ -1,7 +1,5 @@
 package data.scripts.weapons;
 
-import java.util.Date;
-
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseCombatLayeredRenderingPlugin;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
@@ -18,11 +16,12 @@ import org.lwjgl.util.vector.Vector2f;
 public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implements OnHitEffectPlugin {
 
     private final static String CUSTOM_DATA_CR_TICKS = "GL_BIO_CR_TICKS";
+    private final static String CUSTOM_DATA_CR_HIT = "GL_BIO_CR_HIT";
     private final static Logger logger = Global.getLogger(GL_BioOnHitEffect.class);
 
     private ShipAPI target;
     private Integer ticks;
-    private float crLossPerTick;
+    private float crHit;
     private IntervalUtil interval;
 
     public GL_BioOnHitEffect() {
@@ -50,24 +49,36 @@ public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implemen
         float shipHullPoints = ship.getMutableStats().getHullBonus()
                 .computeEffective(ship.getHullSpec().getHitpoints());
         float shipMinCrew = ship.getMutableStats().getMinCrewMod().computeEffective(ship.getHullSpec().getMinCrew());
-        Integer tickAmount = (int) Math.floor(shipMinCrew / shipHullPoints * projDamage * 2);
-
-        // Make sure we only have 1 watcher for bio cr degradation
-        Integer crTicks = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_TICKS);
-        if (crTicks != null && crTicks != 0) {
-            target.setCustomData(CUSTOM_DATA_CR_TICKS, crTicks + tickAmount);
-            return;
-        }
+        Integer tickAmount = (int) Math.floor(shipMinCrew / shipHullPoints * projDamage * 1.5);
 
         // Calculate cr loss for each tick
         float crLossPerTick = (float) Math.floor((projDamage / shipHullPoints) * 200) / 100;
-        if (crLossPerTick > 0.15f) {
-            crLossPerTick = 0.15f;
+        if (crLossPerTick > 0.10f) {
+            crLossPerTick = 0.10f;
+        }
+
+        // Make sure we only have 1 watcher for bio cr degradation
+        Integer currentCrTicks = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_TICKS);
+        if (currentCrTicks != null && currentCrTicks != 0) {
+            // Every hit, increase degradation length by half calculation
+            target.setCustomData(CUSTOM_DATA_CR_TICKS, currentCrTicks + (tickAmount / 2));
+
+            // Every hit, increase degradation strength divided by nbr of hits
+            float currentCrHit = (float) target.getCustomData().get(CUSTOM_DATA_CR_HIT);
+            float nbrTimeHit = 1;
+            if (currentCrHit != 0) {
+                nbrTimeHit = currentCrHit / crLossPerTick;
+            }
+
+            target.setCustomData(CUSTOM_DATA_CR_HIT, currentCrHit + (crLossPerTick / nbrTimeHit / 2));
+            return;
         }
 
         // Create effect
         target.setCustomData(CUSTOM_DATA_CR_TICKS, tickAmount);
-        GL_BioOnHitEffect effect = new GL_BioOnHitEffect(ship, crLossPerTick);
+        target.setCustomData(CUSTOM_DATA_CR_HIT, crLossPerTick);
+
+        GL_BioOnHitEffect effect = new GL_BioOnHitEffect(ship);
         CombatEntityAPI entity = engine.addLayeredRenderingPlugin(effect);
         entity.getLocation().set(proj.getLocation());
     }
@@ -75,11 +86,15 @@ public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implemen
     // ----------------------------------------------------------------------------------------------
     // HANDLE LASTING EFFECT
     // ----------------------------------------------------------------------------------------------
-    public GL_BioOnHitEffect(ShipAPI target, float crLossPerTick) {
+    public GL_BioOnHitEffect(ShipAPI target) {
         this.target = target;
-        this.crLossPerTick = crLossPerTick;
+        logger.info("Created " + GL_BioOnHitEffect.class.getName() + " on target: " + target.getName());
 
-        interval = new IntervalUtil(3f, 5f);
+        if (target.isFrigate() || target.isDestroyer()) {
+            interval = new IntervalUtil(3f, 5f);
+        } else {
+            interval = new IntervalUtil(5f, 8f);
+        }
     }
 
     public void init(CombatEntityAPI entity) {
@@ -92,12 +107,23 @@ public class GL_BioOnHitEffect extends BaseCombatLayeredRenderingPlugin implemen
         }
 
         ticks = (Integer) target.getCustomData().get(CUSTOM_DATA_CR_TICKS);
+        crHit = (float) target.getCustomData().get(CUSTOM_DATA_CR_HIT);
         interval.advance(amount);
         if (interval.intervalElapsed()) {
             target.setCustomData(CUSTOM_DATA_CR_TICKS, --ticks);
-            target.setCurrentCR(target.getCurrentCR() - crLossPerTick);
-            logger.info("CR DEGRADE: " + new Date().toString() + " - " + ticks + " - current cr: "
-                    + target.getCurrentCR() + " CR DEGRADATION BY: " + crLossPerTick);
+            target.setCurrentCR(target.getCurrentCR() - crHit);
+
+            // Kill ship crew from inventory
+            if (!Global.getCombatEngine().isSimulation()) {
+                float shipMinCrew = target.getMutableStats().getMinCrewMod()
+                        .computeEffective(target.getHullSpec().getMinCrew());
+                int deadCrew = (int) (shipMinCrew * crHit);
+                target.getFleetMember().getFleetData().getFleet().getCargo().removeCrew(deadCrew);
+            }
+        }
+
+        if (ticks == 0) {
+            target.setCustomData(CUSTOM_DATA_CR_HIT, 0);
         }
     }
 
