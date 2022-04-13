@@ -8,5 +8,7 @@ libs-starsector/**
 build
 bin
 galo.jar
+dist
+mod_info.json
 
 !.gitkeep

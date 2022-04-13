@@ -1,0 +1,116 @@
+plugins {
+    id "java-library"
+}
+
+ext {
+    // Mod Info
+    id = "gl_galo"
+    mod_name = "Galo"
+    author = "zveillette"
+    mod_version = "0.0.1"
+	mod_description = "A small quest and an unique encounter"
+	game_version = "0.95.1a"
+    mod_plugin = "com.zveillette.galo.GaloPlugin"
+
+    mod_info_template_file = "mod_info_template.json"
+    mod_info_file = "mod_info.json"
+
+    // JAR
+    galo_jar = "galo.jar"
+    galo_lib = "${buildDir}/libs/${galo_jar}"
+
+    // Distribution
+    dist = "dist/"
+    dist_temp = "${dist}package/"
+    dist_file_name = "Galo_"
+}
+
+dependencies {
+    compileOnly files("libs-starsector/log4j-1.2.9.jar")
+    compileOnly files("libs-starsector/lwjgl.jar")
+    compileOnly files("libs-starsector/lwjgl_util.jar")
+    compileOnly files("libs-starsector/starfarer.api.jar")
+    compileOnly files("libs-starsector/xstream-1.4.10.jar")
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs "src"
+        }
+    }
+}
+
+compileJava {
+    options.release = 7
+}
+
+jar {
+    archiveBaseName = "galo"
+}
+
+// - TASKS -------------------------------------------------------------
+
+// Common
+tasks.register("create-mod-info", Copy) {
+    from mod_info_template_file
+    into projectDir
+    rename mod_info_template_file, mod_info_file
+
+    filter { line -> line.replaceAll('\\$\\{id\\}', id)}
+    filter { line -> line.replaceAll('\\$\\{name\\}', mod_name)}
+    filter { line -> line.replaceAll('\\$\\{author\\}', author)}
+    filter { line -> line.replaceAll('\\$\\{version\\}', mod_version)}
+    filter { line -> line.replaceAll('\\$\\{description\\}', mod_description)}
+    filter { line -> line.replaceAll('\\$\\{game_version\\}', game_version)}
+    filter { line -> line.replaceAll('\\$\\{mod_plugin\\}', mod_plugin)}
+}
+
+
+// Dev
+tasks.register("build-dev") {
+    dependsOn "create-mod-info"
+    from galo_lib
+    into projectDir
+}
+
+
+// Dist
+tasks.register("clean-dist", Delete) {
+    delete dist
+    delete mod_info_file
+}
+
+tasks.register("copy-dist", Copy) {
+    dependsOn "create-mod-info"
+    from mod_info_file
+
+    from("galo_lib") {
+        into "jars"
+    }
+
+
+    from("data") {
+        into "data"
+    }
+
+    from("graphics") {
+        into "graphics"
+    }
+
+    into dist_temp
+}
+
+tasks.register("build-dist", Zip) {
+    dependsOn "clean-dist"
+    dependsOn "build"
+    dependsOn "copy-dist"
+
+    doLast {
+        from dist_temp
+        include "*"
+        include "**/*"
+        archiveName "${dist_file_name}${mod_version}".replace(".", "-") + ".zip"
+        destinationDir(file(dist))
+    }
+}
