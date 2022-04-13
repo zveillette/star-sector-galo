@@ -1,19 +1,5 @@
 {
-	"combatSmallForSmallFleet": {
-		"gl_gress_Standard": 5,
-		"gl_gress_Strike": 2,
-		"gl_gress_Support": 5,
-		"gl_gress_p_Strike": 5
-	},
-	"combatSmall": {
-		"gl_gress_Standard": 5,
-		"gl_gress_Strike": 2,
-		"gl_gress_Support": 5,
-		"gl_gress_p_Strike": 5
-	},
 	"combatMedium":{
-		"gl_boulder_Balanced": 4,
-		"gl_boulder_Support": 2,
 		"gl_endeavour_battle_Standard": 4,
 		"gl_endeavour_battle_Artillery": 4,
 		"gl_endeavour_carrier_Assault": 2,

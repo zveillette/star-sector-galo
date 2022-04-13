@@ -1,3 +1,15 @@
+# vscode
 .vscode
 .vscode/settings.json
-jars/bin
+
+# gradle & build
+.gradle
+libs-starsector/**
+build
+bin
+jar
+galo.jar
+dist
+mod_info.json
+
+!.gitkeep

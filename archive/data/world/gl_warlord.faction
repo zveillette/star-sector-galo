@@ -65,12 +65,15 @@
 		"weapons": [
 			"hurricane",
 			"squall",
-			"locust"
+			"locust",
+			"gl_bio_launcher"
 		]
 	},
 	"priorityWeapons": {
 		"tags": [],
-		"weapons": []
+		"weapons": [
+			"gl_bio_launcher"
+		]
 	},
 	"knownHullMods": {
 		"tags": ["base_bp"],

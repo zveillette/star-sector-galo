@@ -1,20 +1,20 @@
 {
-    "variantId": "gl_endeavour_battle_Standard",
+    "variantId": "gl_endeavour_battle_Overdriven",
     "hullId": "gl_endeavour_battle",
-    "displayName": "Standard",
+    "displayName": "Overdriven",
     "goalVariant": true,
-    "fluxCapacitors": 20,
-    "fluxVents": 30,
+    "fluxCapacitors": 10,
+    "fluxVents": 13,
     "permaMods": [],
     "hullMods": [
-        "targetingunit",
-        "heavyarmor"
+        "safetyoverrides",
+        "missleracks"
     ],
     "weaponGroups": [{
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS0001": "hephag"
+                "WS0001": "hammerrack"
             }
         },
         {
@@ -29,7 +29,7 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS0003": "gl_bio_launcher"
+                "WS0003": "sabotpod"
             }
         },
         {
@@ -38,14 +38,6 @@
             "weapons": {
                 "WS0010": "harpoon",
                 "WS0011": "harpoon"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS0012": "lightmg",
-                "WS0013": "lightmg"
             }
         },
         {

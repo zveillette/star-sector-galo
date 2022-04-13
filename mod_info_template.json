@@ -1,0 +1,10 @@
+{
+	"id":"${id}",
+	"name":"${name}",
+	"author":"${author}",
+	"version":"${version}",
+	"description":"${description}",
+	"gameVersion":"${game_version}",
+    "jars":["jars/galo.jar"],
+    "modPlugin":"${mod_plugin}"
+}
