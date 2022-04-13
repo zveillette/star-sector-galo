@@ -16,6 +16,7 @@ ext {
     mod_info_file = "mod_info.json"
 
     // JAR
+    jars = "jars"
     galo_jar = "galo.jar"
     galo_lib = "${buildDir}/libs/${galo_jar}"
 
@@ -68,10 +69,18 @@ tasks.register("create-mod-info", Copy) {
 
 
 // Dev
-tasks.register("build-dev") {
+tasks.register("clean-dev", Delete) {
+    delete jars
+    delete mod_info_file
+}
+
+tasks.register("build-dev", Copy) {
+    dependsOn "clean-dev"
     dependsOn "create-mod-info"
+    dependsOn "build"
+
     from galo_lib
-    into projectDir
+    into "${projectDir}/${jars}"
 }
 
 
@@ -82,13 +91,14 @@ tasks.register("clean-dist", Delete) {
 }
 
 tasks.register("copy-dist", Copy) {
+    dependsOn "build"
     dependsOn "create-mod-info"
+
     from mod_info_file
 
-    from("galo_lib") {
-        into "jars"
+    from(galo_lib) {
+        into jars
     }
-
 
     from("data") {
         into "data"
@@ -103,14 +113,11 @@ tasks.register("copy-dist", Copy) {
 
 tasks.register("build-dist", Zip) {
     dependsOn "clean-dist"
-    dependsOn "build"
     dependsOn "copy-dist"
 
-    doLast {
-        from dist_temp
-        include "*"
-        include "**/*"
-        archiveName "${dist_file_name}${mod_version}".replace(".", "-") + ".zip"
-        destinationDir(file(dist))
-    }
+    from dist_temp
+    include "*"
+    include "**/*"
+    archiveName "${dist_file_name}${mod_version}".replace(".", "-") + ".zip"
+    destinationDir(file(dist))
 }

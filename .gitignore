@@ -7,6 +7,7 @@
 libs-starsector/**
 build
 bin
+jar
 galo.jar
 dist
 mod_info.json

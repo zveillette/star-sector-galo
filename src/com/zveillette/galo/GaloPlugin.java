@@ -1,14 +1,14 @@
 package com.zveillette.galo;
 
-import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.SectorAPI;
+import com.fs.starfarer.api.BaseModPlugin;
+import org.apache.log4j.Logger;
 
 public class GaloPlugin extends BaseModPlugin {
-    public static final String WARLORD_FACTION_ID = "gl_warlord";
+    private final static Logger logger = Global.getLogger(GaloPlugin.class);
 
     @Override
     public void onNewGame() {
-        SectorAPI sector = Global.getSector();
+        logger.info("Add Galo planet to system x");
     }
 }
