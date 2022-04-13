@@ -1,0 +1,40 @@
+{
+    "variantId": "gl_endeavour_carrier_Assault",
+    "hullId": "gl_endeavour_carrier",
+    "displayName": "Assault",
+    "goalVariant": true,
+    "fluxCapacitors": 3,
+    "fluxVents": 15,
+    "permaMods": [],
+    "hullMods": [
+        "expanded_deck_crew",
+        "missleracks"
+    ],
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "hammerrack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "heavyac"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "vulcan"
+            }
+        }
+    ],
+    "wings": [
+        "talon_wing",
+        "talon_wing"
+    ]
+}

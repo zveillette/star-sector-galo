@@ -1,0 +1,53 @@
+{
+    "variantId": "gl_endeavour_battle_Artillery",
+    "hullId": "gl_endeavour_battle",
+    "displayName": "Artillery",
+    "goalVariant": true,
+    "fluxCapacitors": 11,
+    "fluxVents": 30,
+    "permaMods": [],
+    "hullMods": [
+        "targetingunit",
+        "heavyarmor"
+    ],
+    "weaponGroups": [{
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "mark9"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0002": "heavymauler",
+                "WS0004": "heavymauler"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "harpoonpod"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0010": "heatseeker",
+                "WS0011": "heatseeker"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "vulcan",
+                "WS0012": "vulcan",
+                "WS0013": "vulcan"
+            }
+        }
+    ]
+}

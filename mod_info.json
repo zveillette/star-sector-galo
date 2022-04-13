@@ -1,10 +1,10 @@
 {
-	"id":"galo-system",
-	"name":"Galo System",
+	"id":"galo",
+	"name":"Galo",
 	"author":"zveillette",
 	"version":"0.0.1",
-	"description":"Galo System",
+	"description":"Galo",
 	"gameVersion":"0.95.1a",
-    "jars":["jars/galo-system.jar"],
+    "jars":["jars/galo.jar"],
     "modPlugin":"com.zveillette.galo.GaloPlugin"
 }

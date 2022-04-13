@@ -1,0 +1,2 @@
+name,id,planetary,decivRemove,script,desc,icon,order
+Tombworld,GL_TombworldHazard,TRUE,,data.scripts.campaign.econ.GL_TombworldHazard,Devastation renders this world almost uninhabitable.,graphics/icons/markets/uninhabitable.png,10
