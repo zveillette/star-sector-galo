@@ -4,7 +4,7 @@
 
 # gradle & build
 .gradle
-libs-starsector/**
+lib/libs-starsector/**
 build
 bin
 jar

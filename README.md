@@ -10,11 +10,11 @@ It's suggested to clone the repository inside the `starsector/mods` folder to qu
 
 - To build a dev version (creates mod_info and compile jar):
 
-    ```gradle build-dev```
+    ```./gradlew.bat build-dev```
 
 - To build a distribution zip file:
 
-    ```gradle build-dist```
+    ```./gradlew.bat build-dist```
 
 # Author
 Zachary Veillette

@@ -3,6 +3,8 @@ plugins {
 }
 
 ext {
+    repo_dir = projectDir.getParent() + "/";
+
     // Mod Info
     id = "gl_galo"
     mod_name = "Galo"
@@ -10,7 +12,7 @@ ext {
     mod_version = "0.0.1"
 	mod_description = "A small quest and an unique encounter"
 	game_version = "0.95.1a"
-    mod_plugin = "com.zveillette.galo.GaloPlugin"
+    mod_plugin = "com.zveillette.galo.GaloPlugin"  
 
     mod_info_template_file = "mod_info_template.json"
     mod_info_file = "mod_info.json"
@@ -21,23 +23,23 @@ ext {
     galo_lib = "${buildDir}/libs/${galo_jar}"
 
     // Distribution
-    dist = "dist/"
+    dist = "${repo_dir}/dist/"
     dist_temp = "${dist}package/"
     dist_file_name = "Galo_"
 }
 
 dependencies {
-    compileOnly files("libs-starsector/log4j-1.2.9.jar")
-    compileOnly files("libs-starsector/lwjgl.jar")
-    compileOnly files("libs-starsector/lwjgl_util.jar")
-    compileOnly files("libs-starsector/starfarer.api.jar")
-    compileOnly files("libs-starsector/xstream-1.4.10.jar")
+    implementation files("libs-starsector/log4j-1.2.9.jar")
+    implementation files("libs-starsector/lwjgl.jar")
+    implementation files("libs-starsector/lwjgl_util.jar")
+    implementation files("libs-starsector/starfarer.api.jar")
+    implementation files("libs-starsector/xstream-1.4.10.jar")
 }
 
 sourceSets {
     main {
         java {
-            srcDirs "src"
+            srcDirs "src/"
         }
     }
 }
@@ -53,9 +55,9 @@ jar {
 // - TASKS -------------------------------------------------------------
 
 // Common
-tasks.register("create-mod-info", Copy) {
-    from mod_info_template_file
-    into projectDir
+def createModInfo = tasks.register("create-mod-info", Copy) {
+    from "${repo_dir}${mod_info_template_file}"
+    into repo_dir
     rename mod_info_template_file, mod_info_file
 
     filter { line -> line.replaceAll('\\$\\{id\\}', id)}
@@ -70,8 +72,8 @@ tasks.register("create-mod-info", Copy) {
 
 // Dev
 tasks.register("clean-dev", Delete) {
-    delete jars
-    delete mod_info_file
+    delete "${repo_dir}${jars}"
+    delete "${repo_dir}${mod_info_file}"
 }
 
 tasks.register("build-dev", Copy) {
@@ -80,31 +82,30 @@ tasks.register("build-dev", Copy) {
     dependsOn "build"
 
     from galo_lib
-    into "${projectDir}/${jars}"
+    into "${repo_dir}${jars}"
 }
 
 
 // Dist
 tasks.register("clean-dist", Delete) {
     delete dist
-    delete mod_info_file
+    delete "${repo_dir}${mod_info_file}"
 }
 
-tasks.register("copy-dist", Copy) {
-    dependsOn "build"
+def copyDist = tasks.register("copy-dist", Copy) {
     dependsOn "create-mod-info"
-
-    from mod_info_file
+    dependsOn "build"
+    from("${repo_dir}${mod_info_file}")
 
     from(galo_lib) {
         into jars
     }
 
-    from("data") {
+    from("${repo_dir}data") {
         into "data"
     }
 
-    from("graphics") {
+    from("${repo_dir}graphics") {
         into "graphics"
     }
 
@@ -118,6 +119,15 @@ tasks.register("build-dist", Zip) {
     from dist_temp
     include "*"
     include "**/*"
-    archiveName "${dist_file_name}${mod_version}".replace(".", "-") + ".zip"
-    destinationDir(file(dist))
+    archiveFileName = "${dist_file_name}${mod_version}".replace(".", "-") + ".zip"
+    destinationDirectory = file(dist)
+}
+
+compileJava.configure {
+    mustRunAfter createModInfo
+}
+
+copyDist.configure {
+    mustRunAfter createModInfo
+    mustRunAfter build
 }
