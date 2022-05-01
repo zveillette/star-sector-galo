@@ -33,6 +33,7 @@ dependencies {
     implementation files("libs-starsector/lwjgl.jar")
     implementation files("libs-starsector/lwjgl_util.jar")
     implementation files("libs-starsector/starfarer.api.jar")
+    implementation files("libs-starsector/starfarer_obf.jar")
     implementation files("libs-starsector/xstream-1.4.10.jar")
 }
 
@@ -71,15 +72,19 @@ def createModInfo = tasks.register("create-mod-info", Copy) {
 
 
 // Dev
-tasks.register("clean-dev", Delete) {
+def cleanDev = tasks.register("clean-dev", Delete) {
     delete "${repo_dir}${jars}"
     delete "${repo_dir}${mod_info_file}"
 }
 
-tasks.register("build-dev", Copy) {
-    dependsOn "clean-dev"
+def createDev = tasks.register("create-dev") {
     dependsOn "create-mod-info"
     dependsOn "build"
+}
+
+tasks.register("build-dev", Copy) {
+    dependsOn "clean-dev"
+    dependsOn "create-dev"
 
     from galo_lib
     into "${repo_dir}${jars}"
@@ -130,4 +135,8 @@ compileJava.configure {
 copyDist.configure {
     mustRunAfter createModInfo
     mustRunAfter build
+}
+
+createDev.configure {
+    mustRunAfter cleanDev
 }
