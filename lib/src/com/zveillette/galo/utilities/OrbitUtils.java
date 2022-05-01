@@ -28,11 +28,11 @@ public class OrbitUtils {
         return entities;
     }
 
-    public static float getAvailableOrbitRadius(StarSystemAPI sys, float planetSize) {
+    public static float getAvailableOrbitRadius(StarSystemAPI sys, float entitySize, Float orbitStart) {
         List<Pair<Float, Float>> orbitingEntities = new ArrayList<>();
 
         final float margin = 250f;
-        float orbitRadius = 800f;
+        float orbitRadius = orbitStart == null ? 800f : orbitStart;
 
         // Account for star
         if (!sys.isNebula()) {
@@ -77,14 +77,14 @@ public class OrbitUtils {
         int maxIteration = 0;
         boolean orbitFound = false;
         while (!orbitFound && maxIteration++ < 10) {
-            minOrbit = orbitRadius - planetSize;
-            maxOrbit = orbitRadius + planetSize;
+            minOrbit = orbitRadius - entitySize;
+            maxOrbit = orbitRadius + entitySize;
 
             orbitFound = true;
             for (Pair<Float, Float> entityRadius : orbitingEntities) {
                 if (maxOrbit >= entityRadius.one
                         && minOrbit <= entityRadius.two) {
-                    orbitRadius = entityRadius.two + planetSize + margin;
+                    orbitRadius = entityRadius.two + entitySize + margin;
                     orbitFound = false;
                     break;
                 }

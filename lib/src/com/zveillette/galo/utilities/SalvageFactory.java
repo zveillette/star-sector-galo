@@ -22,7 +22,7 @@ public class SalvageFactory {
     public static SectorEntityToken addDerelict(StarSystemAPI system, SectorEntityToken focus, String variantId,
             ShipCondition condition, float orbitRadius, boolean recoverable) {
 
-        DerelictShipData params = new DerelictShipData(new PerShipData(variantId, condition), false);
+        DerelictShipData params = new DerelictShipData(new PerShipData(variantId, condition, Factions.INDEPENDENT, 0f), false);
         SectorEntityToken ship = BaseThemeGenerator.addSalvageEntity(system, Entities.WRECK, Factions.NEUTRAL, params);
         ship.setDiscoverable(true);
         ship.setCircularOrbit(focus, (float) Math.random() * 360f, orbitRadius, OrbitUtils.getOrbitDays(orbitRadius));
