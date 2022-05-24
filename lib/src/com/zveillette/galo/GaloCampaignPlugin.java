@@ -20,7 +20,9 @@ public class GaloCampaignPlugin extends BaseCampaignPlugin {
 
     @Override
     public PluginPick<InteractionDialogPlugin> pickInteractionDialogPlugin(SectorEntityToken interactionTarget) {
-        if (interactionTarget.equals(GaloStoryCoordinator.getUniqueDerelict())
+        final SectorEntityToken uniqueDerelict = GaloStoryCoordinator.getUniqueDerelict();
+
+        if (uniqueDerelict != null && interactionTarget.equals(uniqueDerelict)
                 && GaloStoryCoordinator.getStage() == GaloStoryCoordinator.STAGES.NOT_STARTED) {
             return new PluginPick<InteractionDialogPlugin>(new GaloUniqueDerelictDialog(), PickPriority.MOD_SPECIFIC);
         }

@@ -1,5 +1,7 @@
 package com.zveillette.galo.story;
 
+import java.util.List;
+
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
@@ -11,6 +13,7 @@ import com.zveillette.galo.GaloPlugin;
 import com.zveillette.galo.utilities.OrbitUtils;
 import com.zveillette.galo.utilities.SalvageFactory;
 import com.zveillette.galo.utilities.Utils;
+import com.zveillette.galo.utilities.SalvageFactory.RECOVER;
 
 import org.apache.log4j.Logger;
 
@@ -60,17 +63,17 @@ public class GaloStoryCoordinator {
         // Add some derelicts around it
         float planetRadius = galoPlanet.getRadius() + 100f;
         SalvageFactory.addDerelict(randomSys, galoPlanet, "brawler_Assault", ShipCondition.BATTERED,
-                planetRadius + 50f, false);
+                planetRadius + 50f, RECOVER.YES);
         SalvageFactory.addDerelict(randomSys, galoPlanet, "conquest_Standard", ShipCondition.AVERAGE,
-                planetRadius + 75f, false);
+                planetRadius + 75f, RECOVER.WITH_STORY_P);
         SalvageFactory.addDerelict(randomSys, galoPlanet, "condor_Strike", ShipCondition.WRECKED,
-                planetRadius + 90f, false);
+                planetRadius + 90f, RECOVER.YES);
 
         // Spawn the unique derelict that prompts the story
         float uniqueDerelictOrbitRadius = OrbitUtils.getAvailableOrbitRadius(randomSys, 25f, 3000f);
         SectorEntityToken uniqueDerelict = SalvageFactory.addDerelict(randomSys, randomSys.getStar(),
                 "gl_endeavour_battle_Overdriven",
-                ShipCondition.WRECKED, OrbitUtils.getAvailableOrbitRadius(randomSys, 25f, 3000f), false);
+                ShipCondition.WRECKED, OrbitUtils.getAvailableOrbitRadius(randomSys, 25f, 3000f), RECOVER.NO);
 
         uniqueDerelict.addTag(GaloStoryCoordinator.UNIQUE_DERELICT_TAG);
         logger.info(
@@ -85,7 +88,8 @@ public class GaloStoryCoordinator {
      */
     public static void completeDerelictInvestigation() {
         Global.getSector().getPersistentData().put(STAGE_MEM_KEY, STAGES.DERELICT_FOUND);
-        Global.getSector().getIntelManager().addIntel(new GaloUnknownCoodinatesIntel(getUniqueDerelict(), getGaloPlanet()));
+        Global.getSector().getIntelManager()
+                .addIntel(new GaloIntel(getUniqueDerelict(), getGaloPlanet(), STAGES.DERELICT_FOUND));
     }
 
     // ---------------------------------------------------------------
@@ -96,6 +100,10 @@ public class GaloStoryCoordinator {
     }
 
     public static SectorEntityToken getUniqueDerelict() {
+        final List<SectorEntityToken> derelicts = Global.getSector().getEntitiesWithTag(UNIQUE_DERELICT_TAG);
+        if (derelicts.isEmpty()) {
+            return null;
+        }
         return Global.getSector().getEntitiesWithTag(UNIQUE_DERELICT_TAG).get(0);
     }
 
