@@ -2,6 +2,7 @@ package com.zveillette.galo;
 
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
+import com.zveillette.galo.encounters.GaloEncountersCoordinator;
 import com.zveillette.galo.story.GaloStoryCoordinator;
 
 import org.apache.log4j.Logger;
@@ -12,6 +13,7 @@ public class GaloPlugin extends BaseModPlugin {
     @Override
     public void onNewGameAfterProcGen() {
         GaloStoryCoordinator.init();
+        GaloEncountersCoordinator.init();
     }
 
     @Override

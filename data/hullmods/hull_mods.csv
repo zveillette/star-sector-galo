@@ -1,0 +1,2 @@
+name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sprite
+Bio-Hazard,gl_biohazard,,1,,dmod,,,,TRUE,,0,0,0,0,data.scripts.hullmods.GL_BioHazard,"The ship's quarters are full of a highly potent pathogen. Most quarters are completely quarantined, the others necessitate a vac-suit to navigate through. Decrease maximum combat readiness by %s.",Decrease combat readiness.,graphics/hullmods/gl_biohazard.png

@@ -3,12 +3,31 @@ package com.zveillette.galo.utilities;
 import java.util.ArrayList;
 import java.util.List;
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator.StarSystemType;
 
 public class Utils {
+    public static Float removeCrew(CampaignFleetAPI fleet, Float total, Float mod) {
+        return removeCrew(fleet, total, mod, null, null);
+    }
+
+    public static float removeCrew(CampaignFleetAPI fleet, Float total, Float mod, Float min, Float max) {
+        float crews = (float) Math.floor(total * mod);
+        if (min != null && crews < min) {
+            crews = min;
+        }
+
+        if (max != null && crews > max) {
+            crews = max;
+        }
+
+        fleet.getCargo().removeCrew((int) crews);
+        return crews;
+    }
+
     /**
      * Pick a random starsystem that follows given rules
      */

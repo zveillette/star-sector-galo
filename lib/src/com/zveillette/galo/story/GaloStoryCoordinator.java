@@ -60,15 +60,6 @@ public class GaloStoryCoordinator {
 
         logger.info("Tombworld '" + galoPlanet.getName() + "' created in '" + randomSys.getName() + "'");
 
-        // Add some derelicts around it
-        float planetRadius = galoPlanet.getRadius() + 100f;
-        SalvageFactory.addDerelict(randomSys, galoPlanet, "brawler_Assault", ShipCondition.BATTERED,
-                planetRadius + 50f, RECOVER.YES);
-        SalvageFactory.addDerelict(randomSys, galoPlanet, "conquest_Standard", ShipCondition.AVERAGE,
-                planetRadius + 75f, RECOVER.WITH_STORY_P);
-        SalvageFactory.addDerelict(randomSys, galoPlanet, "condor_Strike", ShipCondition.WRECKED,
-                planetRadius + 90f, RECOVER.YES);
-
         // Spawn the unique derelict that prompts the story
         float uniqueDerelictOrbitRadius = OrbitUtils.getAvailableOrbitRadius(randomSys, 25f, 3000f);
         SectorEntityToken uniqueDerelict = SalvageFactory.addDerelict(randomSys, randomSys.getStar(),
@@ -104,7 +95,7 @@ public class GaloStoryCoordinator {
         if (derelicts.isEmpty()) {
             return null;
         }
-        return Global.getSector().getEntitiesWithTag(UNIQUE_DERELICT_TAG).get(0);
+        return derelicts.get(0);
     }
 
     public static SectorEntityToken getGaloPlanet() {

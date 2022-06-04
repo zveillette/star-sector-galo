@@ -1,5 +1,6 @@
 package com.zveillette.galo.utilities;
 
+import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.impl.campaign.DerelictShipEntityPlugin.DerelictShipData;
@@ -43,6 +44,14 @@ public class SalvageFactory {
         }
 
         return ship;
+    }
+
+    /**
+     * Add random amount of commodity to cargo
+     */
+    public static void addCommodity(CargoAPI cargo, String commodity, float min, float max) {
+        float amount = ((float) Math.random() * max) + min;
+        cargo.addCommodity(commodity, amount);
     }
 
     /**
