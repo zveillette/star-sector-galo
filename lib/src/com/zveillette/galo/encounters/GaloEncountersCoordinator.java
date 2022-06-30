@@ -49,6 +49,7 @@ public class GaloEncountersCoordinator {
         CargoAPI conquestCargo = Global.getFactory().createCargo(true);
         SalvageFactory.addCommodity(conquestCargo, Commodities.HAND_WEAPONS, 100, 150);
         BaseSalvageSpecial.addExtraSalvage(conquestCargo, conquestShip.getMemory(), -1);
+        conquestShip.getCargo().addAll(conquestCargo);
 
         Global.getSector().getPersistentData().put(CONQUEST_STAGE_MEM_KEY, STAGES.NOT_STARTED);
     }
